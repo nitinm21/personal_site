@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import Navigation from '@/components/Navigation';
+import PageTransition from '@/components/PageTransition';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           <Navigation />
-          <main>{children}</main>
+          <main>
+            <PageTransition>{children}</PageTransition>
+          </main>
         </ThemeProvider>
       </body>
     </html>
