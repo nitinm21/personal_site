@@ -1,0 +1,139 @@
+.nav {
+  position: fixed;
+  top: 24px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.pills {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+
+.pills::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--shimmer-gradient);
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.pills::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: var(--glass-glow-gradient);
+  border-radius: inherit;
+  opacity: 0;
+  z-index: -1;
+  filter: blur(12px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pills:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.pills:hover::before {
+  opacity: 1;
+  animation: shimmer 2s ease-in-out;
+}
+
+.pills:hover::after {
+  opacity: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.linkWrapper {
+  text-decoration: none;
+}
+
+.pill {
+  position: relative;
+  padding: 8px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--pill-hover-gradient);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pill:hover:not(.active) {
+  transform: translateY(-1px);
+}
+
+.pill:hover:not(.active)::before {
+  opacity: 1;
+}
+
+.activeBg {
+  position: absolute;
+  inset: 0;
+  background: var(--text-primary);
+  border-radius: 100px;
+  z-index: 0;
+  box-shadow: 0 2px 12px var(--active-pill-shadow);
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.active .label {
+  color: var(--bg-primary);
+}
+
+.pill:hover:not(.active) .label {
+  color: var(--text-primary);
+}

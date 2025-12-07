@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid transparent;
+  border-radius: inherit;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--glass-glow-gradient);
+  border-radius: inherit;
+  opacity: 0;
+  filter: blur(8px);
+  z-index: -1;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link:hover {
+  color: var(--text-primary);
+  transform: translateY(-3px);
+}
+
+.link:hover::before {
+  opacity: 1;
+  transform: scale(1);
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.link:hover::after {
+  opacity: 0.6;
+}
+
+.link:active {
+  transform: translateY(-1px) scale(0.96);
+}
+
+.link svg {
+  position: relative;
+  z-index: 1;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link:hover svg {
+  transform: scale(1.08);
+}
+
+/* Brand colors on hover */
+.link[data-platform="github"]:hover {
+  color: #333333;
+}
+
+.link[data-platform="substack"]:hover {
+  color: #FF6719;
+}
+
+.link[data-platform="linkedin"]:hover {
+  color: #0A66C2;
+}
+
+.link[data-platform="email"]:hover {
+  color: #EA4335;
+}
+
+/* Dark theme adjustments for GitHub (since #333 is too dark) */
+[data-theme="dark"] .link[data-platform="github"]:hover {
+  color: #f0f0f0;
+}
+
+@media (max-width: 480px) {
+  .container {
+    justify-content: center;
+  }
+
+  .link {
+    width: 40px;
+    height: 40px;
+  }
+}

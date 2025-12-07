@@ -1,0 +1,83 @@
+.toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  box-shadow: var(--glass-shadow);
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: visible;
+}
+
+.toggle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--glass-glow-gradient);
+  border-radius: inherit;
+  opacity: 0;
+  filter: blur(10px);
+  z-index: -1;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toggle:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.toggle:hover::before {
+  opacity: 1;
+}
+
+.toggle:hover::after {
+  opacity: 0.7;
+}
+
+.toggle:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toggle:hover .iconWrapper {
+  transform: rotate(12deg) scale(1.05);
+}
+
+.icon {
+  color: var(--text-secondary);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toggle:hover .icon {
+  color: var(--text-primary);
+}
