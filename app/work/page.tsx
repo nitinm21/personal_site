@@ -43,13 +43,8 @@ const education: EducationItem[] = [
   {
     degree: 'Master of Science in Artificial Intelligence',
     school: 'Illinois Institute of Technology',
-    years: '2023 - 2024',
-  },
-  {
-    degree: 'Bachelor of Technology',
-    school: 'Your University',
-    years: '2014 - 2018',
-  },
+    years: '2023 - 2025',
+  }
 ];
 
 const containerVariants = {
