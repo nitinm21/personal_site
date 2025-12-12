@@ -94,15 +94,159 @@ export default function InTheWild() {
               </a>
             </motion.div>
           </motion.div>
+
+          <motion.div
+            className={styles.item}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            <div className={styles.itemHeader}>
+              <div className={styles.titleContainer}>
+                <h3 className={styles.itemTitle}>
+                  Phone call with Steve Jobs at the Elastic User Group |{' '}
+                  <a
+                    href="https://youtu.be/wmOfrbRLl-k"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.videoLink}
+                  >
+                    Video
+                  </a>
+                </h3>
+                <p className={styles.itemSubtitle}>
+                  Demoed an AI-powered phone call with Steve Jobs using Elasticsearch at the{' '}
+                  <a
+                    href="https://www.meetup.com/elastic-chicago-user-group/events/305542818/?eventOrigin=group_events_list"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'underline' }}
+                  >
+                    Chicago Elastic User Group
+                  </a>
+                  .
+                </p>
+              </div>
+              <a
+                href="https://www.linkedin.com/posts/activity-7308580318423261186-cgaR"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.openButton}
+                aria-label="Open LinkedIn post in new tab"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <motion.div
+              className={styles.imageContainer}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
+              <a
+                href="https://www.linkedin.com/posts/activity-7308580318423261186-cgaR"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.imageLink}
+                aria-label="View on LinkedIn"
+              >
+                <img
+                  src="/elastic-talk.jpeg"
+                  alt="Phone call with Steve Jobs at the Elastic User Group"
+                  className={styles.image}
+                />
+              </a>
+            </motion.div>
+          </motion.div>
         </section>
 
         <div className={styles.divider} />
 
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Fireside chats moderated</h2>
-          <div className={styles.itemsList}>
-            <p className={styles.placeholder}>Coming soon...</p>
-          </div>
+
+          <motion.div
+            className={styles.item}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            <div className={styles.itemHeader}>
+              <div className={styles.titleContainer}>
+                <h3 className={styles.itemTitle}>
+                  AI Masterclass with{' '}
+                  <a
+                    href="https://www.linkedin.com/in/davidgiard"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'underline' }}
+                  >
+                    David Giard
+                  </a>
+                  , Partner Solution Architect, Microsoft
+                </h3>
+              </div>
+              <a
+                href="https://www.linkedin.com/posts/activity-7182502375469801472-4cW7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.openButton}
+                aria-label="Open LinkedIn post in new tab"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <motion.div
+              className={styles.imageContainer}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+            >
+              <a
+                href="https://www.linkedin.com/posts/activity-7182502375469801472-4cW7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.imageLink}
+                aria-label="View on LinkedIn"
+              >
+                <img
+                  src="/david-giard.jpeg"
+                  alt="AI Masterclass with David Giard, Partner Solution Architect, Microsoft"
+                  className={styles.image}
+                />
+              </a>
+            </motion.div>
+          </motion.div>
         </section>
       </motion.div>
     </div>
