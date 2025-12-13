@@ -1,9 +1,59 @@
 .container {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 120px 24px 80px;
+  position: relative;
+  outline: none;
+}
+
+/* View Toggle */
+.viewToggle {
+  position: fixed;
+  top: 100px;
+  right: 24px;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  z-index: 100;
+}
+
+/* Hide view toggle on mobile */
+@media (max-width: 600px) {
+  .viewToggle {
+    display: none;
+  }
+}
+
+.viewButton {
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 24px 80px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.viewButton:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.viewButtonActive {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .content {
@@ -108,6 +158,192 @@
   transform: scale(1.05);
 }
 
+/* Cover Flow Styles */
+.coverflowWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  padding-top: 40px;
+}
+
+.coverflowStage {
+  width: 100%;
+  height: 400px;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.coverflowContainer {
+  position: relative;
+  width: 585px;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.coverItem {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 585px;
+  height: 403px;
+  margin-top: -201.5px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.coverItemActive {
+  cursor: pointer;
+}
+
+.coverImageWrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.coverItemActive .coverImageWrapper {
+  box-shadow:
+    0 35px 60px -15px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 80px rgba(255, 255, 255, 0.05);
+  border-color: var(--glass-border-hover);
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.coverItemActive:hover .coverImage {
+  transform: scale(1.02);
+}
+
+/* Reflection */
+.coverReflection {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(-1) translateY(-8px);
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 12px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+}
+
+.coverReflectionImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: blur(1px);
+  opacity: 0.4;
+}
+
+/* Cover Flow Info */
+.coverflowInfo {
+  text-align: center;
+  margin-top: 100px;
+  padding: 0 20px;
+  max-width: 500px;
+}
+
+.coverflowTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.coverflowSubtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.coverflowHint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+/* Custom Scrollbar */
+.customScrollbar {
+  width: 400px;
+  height: 12px;
+  margin-top: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.customScrollbar:hover {
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@media (prefers-color-scheme: light) {
+  .customScrollbar {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .customScrollbar:hover {
+    background: rgba(0, 0, 0, 0.15);
+  }
+}
+
+.scrollbarThumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  cursor: grab;
+  transition: background 0.2s ease, width 0.3s cubic-bezier(0.4, 0, 0.2, 1), left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.scrollbarThumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+@media (prefers-color-scheme: light) {
+  .scrollbarThumb {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .scrollbarThumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+
 @media (max-width: 768px) {
   .title {
     font-size: 20px;
@@ -129,5 +365,36 @@
   .openButton svg {
     width: 16px;
     height: 16px;
+  }
+
+  .viewToggle {
+    top: 80px;
+    right: 16px;
+  }
+
+  .coverflowStage {
+    height: 300px;
+  }
+
+  .coverflowContainer {
+    width: 442px;
+  }
+
+  .coverItem {
+    width: 442px;
+    height: 305.5px;
+    margin-top: -152.75px;
+  }
+
+  .coverflowInfo {
+    margin-top: 80px;
+  }
+
+  .coverflowTitle {
+    font-size: 20px;
+  }
+
+  .coverflowSubtitle {
+    font-size: 14px;
   }
 }
