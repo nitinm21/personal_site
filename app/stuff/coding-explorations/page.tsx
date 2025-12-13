@@ -35,7 +35,7 @@ export default function CodingExplorations() {
       id: 'exa-serpapi',
       title: 'Exa v/s SerpAPI',
       subtitle: "Interactive playground to compare Exa's APIs and traditional search APIs",
-      url: 'https://exa-jusn.onrender.com/',
+      url: 'https://exa-lime.vercel.app/',
       image: '/exa-serpapi-preview.png',
       imageAlt: 'Exa v/s SerpAPI Preview',
     },
