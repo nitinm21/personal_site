@@ -21,20 +21,21 @@ const experience: ExperienceItem[] = [
   {
     title: 'AI Product Manager',
     company: 'Patent Response',
-    years: '2023 - Present',
+    years: '2025 - Present',
     description: 'Building document processing pipelines that reduced patent rejection rates by 45%.',
   },
   {
     title: 'Product Manager',
     company: 'SurveySparrow',
     companyUrl: 'https://surveysparrow.com/',
-    years: '2020 - 2023',
+    years: '2021 - 2023',
     description: 'Led Core and API teams. Revamped monetization with consumption-based pricing (16% NRR increase) and shipped the first AI-survey generator (40% faster creation).',
   },
   {
     title: 'Software Engineer',
-    company: 'Your Company',
-    years: '2018 - 2020',
+    company: 'Institute of Product Leadership',
+    companyUrl: 'https://www.productleadership.com/',
+    years: '2020 - 2021',
     description: 'Started as an engineer. Shipped code to production, so I know what I\'m asking for when I write a spec.',
   },
 ];
