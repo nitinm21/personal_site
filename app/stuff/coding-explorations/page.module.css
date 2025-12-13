@@ -291,11 +291,11 @@
 
 /* Custom Scrollbar */
 .customScrollbar {
-  width: 400px;
-  height: 12px;
+  width: 300px;
+  height: 4px;
   margin-top: 32px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
   position: relative;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -303,17 +303,17 @@
 }
 
 .customScrollbar:hover {
-  height: 14px;
-  background: rgba(255, 255, 255, 0.15);
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 @media (prefers-color-scheme: light) {
   .customScrollbar {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.06);
   }
 
   .customScrollbar:hover {
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -322,24 +322,24 @@
   top: 0;
   left: 0;
   height: 100%;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
   cursor: grab;
   transition: background 0.2s ease, width 0.3s cubic-bezier(0.4, 0, 0.2, 1), left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 
-.scrollbarThumb:hover {
-  background: rgba(255, 255, 255, 0.5);
+.customScrollbar:hover .scrollbarThumb {
+  background: rgba(255, 255, 255, 0.45);
 }
 
 @media (prefers-color-scheme: light) {
   .scrollbarThumb {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.25);
   }
 
-  .scrollbarThumb:hover {
-    background: rgba(0, 0, 0, 0.5);
+  .customScrollbar:hover .scrollbarThumb {
+    background: rgba(0, 0, 0, 0.4);
   }
 }
 
