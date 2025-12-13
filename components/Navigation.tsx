@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './Navigation.module.css';
 import ThemeToggle from './ThemeToggle';
 
@@ -21,6 +21,32 @@ export default function Navigation() {
   const pathname = usePathname();
   const [stuffOpen, setStuffOpen] = useState(false);
   const isStuffActive = pathname.startsWith('/stuff');
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setStuffOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, []);
+
+  // Close dropdown when route changes
+  useEffect(() => {
+    setStuffOpen(false);
+  }, [pathname]);
+
+  const handleStuffClick = () => {
+    setStuffOpen((prev) => !prev);
+  };
 
   return (
     <motion.nav
@@ -51,6 +77,7 @@ export default function Navigation() {
 
           {/* Stuff with dropdown */}
           <div
+            ref={dropdownRef}
             className={styles.dropdownContainer}
             onMouseEnter={() => setStuffOpen(true)}
             onMouseLeave={() => setStuffOpen(false)}
@@ -59,6 +86,7 @@ export default function Navigation() {
               className={`${styles.pill} ${isStuffActive ? styles.active : ''}`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={handleStuffClick}
             >
               {isStuffActive && (
                 <motion.div

@@ -81,3 +81,10 @@
 .toggle:hover .icon {
   color: var(--text-primary);
 }
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+  .toggle {
+    display: none;
+  }
+}
