@@ -55,11 +55,6 @@
   color: #EA4335;
 }
 
-/* Dark theme adjustments for GitHub (since #333 is too dark) */
-[data-theme="dark"] .link[data-platform="github"]:hover {
-  color: #f0f0f0;
-}
-
 @media (max-width: 480px) {
   .container {
     justify-content: center;

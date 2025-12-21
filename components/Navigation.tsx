@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
+import { useViewMode } from '@/contexts/ViewModeContext';
 import styles from './Navigation.module.css';
-import ThemeToggle from './ThemeToggle';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -21,7 +21,9 @@ export default function Navigation() {
   const pathname = usePathname();
   const [stuffOpen, setStuffOpen] = useState(false);
   const isStuffActive = pathname.startsWith('/stuff');
+  const isStuffPage = pathname.startsWith('/stuff/');
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { viewMode, setViewMode } = useViewMode();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -156,8 +158,45 @@ export default function Navigation() {
               <span className={styles.label}>Work</span>
             </motion.div>
           </Link>
+
+          {/* View Toggle - only on /stuff/* pages */}
+          <AnimatePresence>
+            {isStuffPage && (
+              <motion.div
+                className={styles.viewToggleSection}
+                initial={{ opacity: 0, width: 0 }}
+                animate={{ opacity: 1, width: 'auto' }}
+                exit={{ opacity: 0, width: 0 }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              >
+                <div className={styles.divider} />
+                <div className={styles.viewToggle}>
+                  <button
+                    className={`${styles.viewIcon} ${viewMode === 'list' ? styles.viewIconActive : ''}`}
+                    onClick={() => setViewMode('list')}
+                    aria-label="List View"
+                    data-tooltip="List View"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  <button
+                    className={`${styles.viewIcon} ${viewMode === 'coverflow' ? styles.viewIconActive : ''}`}
+                    onClick={() => setViewMode('coverflow')}
+                    aria-label="Cover Flow View"
+                    data-tooltip="Cover Flow View"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="2" y="5" width="12" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
+                      <rect x="10" y="5" width="12" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" fill="rgba(0,0,0,0.15)" />
+                    </svg>
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-        <ThemeToggle />
       </div>
     </motion.nav>
   );

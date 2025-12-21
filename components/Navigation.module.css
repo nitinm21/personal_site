@@ -120,7 +120,7 @@
   transform: translateX(-50%);
   min-width: 180px;
   padding: 8px;
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--glass-border);
@@ -149,4 +149,91 @@
 .dropdownItemActive {
   color: var(--text-primary);
   background: var(--glass-bg-hover);
+}
+
+/* View Toggle Section */
+.viewToggleSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.divider {
+  width: 1px;
+  height: 16px;
+  background: var(--text-secondary);
+  opacity: 0.3;
+  margin-left: 4px;
+}
+
+.viewToggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.viewIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.viewIcon:hover {
+  opacity: 0.8;
+  color: var(--text-primary);
+}
+
+.viewIconActive {
+  color: var(--text-primary);
+  opacity: 1;
+}
+
+/* Custom Tooltip */
+.viewIcon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 8px 12px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  box-shadow: var(--glass-shadow);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1000;
+}
+
+.viewIcon:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Hide view toggle on mobile */
+@media (max-width: 600px) {
+  .viewToggleSection {
+    display: none;
+  }
 }

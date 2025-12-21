@@ -2,9 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useViewMode } from '@/contexts/ViewModeContext';
 import styles from './page.module.css';
-
-type ViewMode = 'list' | 'coverflow';
 
 interface WildItem {
   id: string;
@@ -18,11 +17,14 @@ interface WildItem {
 }
 
 export default function InTheWild() {
-  const [viewMode, setViewMode] = useState<ViewMode>('list');
+  const { viewMode } = useViewMode();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeSection, setActiveSection] = useState<'speaking' | 'fireside'>('speaking');
   const coverflowStageRef = useRef<HTMLDivElement>(null);
   const scrollbarRef = useRef<HTMLDivElement>(null);
   const isDraggingRef = useRef(false);
+  const speakingSectionRef = useRef<HTMLElement>(null);
+  const firesideSectionRef = useRef<HTMLElement>(null);
 
   const items: WildItem[] = [
     {
@@ -99,6 +101,38 @@ export default function InTheWild() {
     return () => {
       document.body.style.overflow = '';
     };
+  }, [viewMode]);
+
+  // Track which section is in view
+  useEffect(() => {
+    if (viewMode !== 'list') return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-120px 0px -50% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target === speakingSectionRef.current) {
+            setActiveSection('speaking');
+          } else if (entry.target === firesideSectionRef.current) {
+            setActiveSection('fireside');
+          }
+        }
+      });
+    }, observerOptions);
+
+    if (speakingSectionRef.current) {
+      observer.observe(speakingSectionRef.current);
+    }
+    if (firesideSectionRef.current) {
+      observer.observe(firesideSectionRef.current);
+    }
+
+    return () => observer.disconnect();
   }, [viewMode]);
 
   useEffect(() => {
@@ -283,31 +317,6 @@ export default function InTheWild() {
 
   return (
     <div className={styles.container} onKeyDown={handleKeyDown} tabIndex={0}>
-      <div className={styles.viewToggle}>
-        <button
-          className={`${styles.viewButton} ${viewMode === 'list' ? styles.viewButtonActive : ''}`}
-          onClick={() => setViewMode('list')}
-          aria-label="List view"
-          title="List view"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-        <button
-          className={`${styles.viewButton} ${viewMode === 'coverflow' ? styles.viewButtonActive : ''}`}
-          onClick={() => setViewMode('coverflow')}
-          aria-label="Cover Flow view"
-          title="Cover Flow view"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="6" width="6" height="12" rx="1" stroke="currentColor" strokeWidth="2" transform="skewY(-10)" />
-            <rect x="9" y="4" width="6" height="14" rx="1" stroke="currentColor" strokeWidth="2" />
-            <rect x="16" y="6" width="6" height="12" rx="1" stroke="currentColor" strokeWidth="2" transform="skewY(10)" />
-          </svg>
-        </button>
-      </div>
-
       <AnimatePresence mode="wait">
         {viewMode === 'list' ? (
           <motion.div
@@ -318,15 +327,13 @@ export default function InTheWild() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Public speaking</h2>
+            <section className={styles.section} ref={speakingSectionRef}>
               {speakingItems.map((item, index) => renderListItem(item, index, 0.2))}
             </section>
 
             <div className={styles.divider} />
 
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Fireside chats moderated</h2>
+            <section className={styles.section} ref={firesideSectionRef}>
               {firesideItems.map((item, index) => renderListItem(item, index, 0.4))}
             </section>
           </motion.div>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { ThemeProvider } from '@/components/ThemeProvider';
 import Navigation from '@/components/Navigation';
 import PageTransition from '@/components/PageTransition';
+import { ViewModeProvider } from '@/contexts/ViewModeContext';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -20,14 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body>
-        <ThemeProvider>
+        <ViewModeProvider>
           <Navigation />
           <main>
             <PageTransition>{children}</PageTransition>
           </main>
-        </ThemeProvider>
+        </ViewModeProvider>
       </body>
     </html>
   );

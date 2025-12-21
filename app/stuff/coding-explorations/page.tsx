@@ -2,9 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useViewMode } from '@/contexts/ViewModeContext';
 import styles from './page.module.css';
-
-type ViewMode = 'list' | 'coverflow';
 
 interface Project {
   id: string;
@@ -16,7 +15,7 @@ interface Project {
 }
 
 export default function CodingExplorations() {
-  const [viewMode, setViewMode] = useState<ViewMode>('list');
+  const { viewMode } = useViewMode();
   const [activeIndex, setActiveIndex] = useState(1);
   const coverflowStageRef = useRef<HTMLDivElement>(null);
   const scrollbarRef = useRef<HTMLDivElement>(null);
@@ -155,32 +154,6 @@ export default function CodingExplorations() {
 
   return (
     <div className={styles.container} onKeyDown={handleKeyDown} tabIndex={0}>
-      {/* View Toggle */}
-      <div className={styles.viewToggle}>
-        <button
-          className={`${styles.viewButton} ${viewMode === 'list' ? styles.viewButtonActive : ''}`}
-          onClick={() => setViewMode('list')}
-          aria-label="List view"
-          title="List view"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-        <button
-          className={`${styles.viewButton} ${viewMode === 'coverflow' ? styles.viewButtonActive : ''}`}
-          onClick={() => setViewMode('coverflow')}
-          aria-label="Cover Flow view"
-          title="Cover Flow view"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="6" width="6" height="12" rx="1" stroke="currentColor" strokeWidth="2" transform="skewY(-10)" />
-            <rect x="9" y="4" width="6" height="14" rx="1" stroke="currentColor" strokeWidth="2" />
-            <rect x="16" y="6" width="6" height="12" rx="1" stroke="currentColor" strokeWidth="2" transform="skewY(10)" />
-          </svg>
-        </button>
-      </div>
-
       <AnimatePresence mode="wait">
         {viewMode === 'list' ? (
           <motion.div
