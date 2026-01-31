@@ -1,6 +1,8 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
+import { detectMobilePhone, getDefaultViewMode } from '@/utils/viewMode.mjs';
 
 type ViewMode = 'list' | 'coverflow';
 
@@ -12,7 +14,16 @@ interface ViewModeContextType {
 const ViewModeContext = createContext<ViewModeContextType | undefined>(undefined);
 
 export function ViewModeProvider({ children }: { children: ReactNode }) {
-  const [viewMode, setViewMode] = useState<ViewMode>('list');
+  const pathname = usePathname();
+  const [isMobilePhone] = useState(() => detectMobilePhone());
+  const [viewMode, setViewMode] = useState<ViewMode>(() =>
+    getDefaultViewMode(pathname ?? '', isMobilePhone)
+  );
+
+  useEffect(() => {
+    const nextMode = getDefaultViewMode(pathname ?? '', isMobilePhone);
+    setViewMode((prev) => (prev === nextMode ? prev : nextMode));
+  }, [pathname, isMobilePhone]);
 
   return (
     <ViewModeContext.Provider value={{ viewMode, setViewMode }}>
