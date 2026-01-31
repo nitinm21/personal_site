@@ -42,11 +42,20 @@ export default function CodingExplorations() {
     {
       id: 'tv-setup-demo',
       title: 'TV Setup Demo',
-      subtitle: 'Every time you buy a TV, you set up picture preferences manually. A re-imagination of the experience',
+      subtitle: 'Every time you buy a TV, you set up picture preferences manually. What if it wasn\'t manual?',
       url: 'https://tv-demo-exa.vercel.app/',
       repoUrl: 'https://github.com/nitinm21/tv_demo',
       image: '/tv-setup-demo-preview.png',
       imageAlt: 'TV Setup Demo Preview',
+    },
+    {
+      id: 'chime-savings-idea',
+      title: 'Chime Savings Account Idea',
+      subtitle: "Chime's savings account accrues interest daily (love it!). Yet it's not highlighted to encourage more deposits. What if they leveraged it to boost engagement?",
+      url: 'https://chime-savings-idea.vercel.app/',
+      repoUrl: 'https://github.com/nitinm21/chime_savings_idea',
+      image: '/chime-savings-idea-preview.png',
+      imageAlt: 'Chime Savings Account Idea Preview',
     },
     {
       id: 'langchain',
