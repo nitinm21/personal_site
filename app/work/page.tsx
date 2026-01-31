@@ -9,6 +9,7 @@ interface ExperienceItem {
   companyUrl?: string;
   years: string;
   description?: string;
+  highlights?: string[];
 }
 
 interface EducationItem {
@@ -20,23 +21,31 @@ interface EducationItem {
 const experience: ExperienceItem[] = [
   {
     title: 'AI Product Manager',
-    company: 'Patent Response',
+    company: 'GoodPower',
     years: '2025 - Present',
-    description: 'Building document processing pipelines that reduced patent rejection rates by 45%.',
+    highlights: [
+      'Building products to accelerate the transition to clean energy.',
+    ],
   },
   {
     title: 'Product Manager',
     company: 'SurveySparrow',
     companyUrl: 'https://surveysparrow.com/',
     years: '2021 - 2023',
-    description: 'Led Core and API teams. Revamped monetization with consumption-based pricing (16% NRR increase) and shipped the first AI-survey generator (40% faster creation).',
+    highlights: [
+      'Built an AI-powered survey generator leveraging LLMs to translate user goals into ready-to-send surveys, driving a 40% reduction in survey creation time and a 5% increase in free-to-paid conversion rate.',
+      'Revamped the monetization model with Consumption-Based Pricing, resulting in a 16% increase in Net Retention Rate and 18% growth in Expansion Revenue within 4 months of implementation.',
+    ],
   },
   {
     title: 'Software Engineer',
     company: 'Institute of Product Leadership',
     companyUrl: 'https://www.productleadership.com/',
     years: '2020 - 2021',
-    description: 'Started as an engineer. Shipped code to production, so I know what I\'m asking for when I write a spec.',
+    highlights: [
+      'Successfully reduced web application load times by 40%, with asynchronous loading of non-critical resources, caching strategies, and image optimization.',
+      'Designed and developed 40+ web pages with programmatic SEO using React and a custom CMS, resulting in a 45% increase in organic registrations.',
+    ],
   },
 ];
 
@@ -85,8 +94,7 @@ export default function Work() {
               >
                 <div className={styles.itemHeader}>
                   <div className={styles.role}>
-                    <span className={styles.title}>{item.title}</span>
-                    <span className={styles.separator}>,</span>
+                    <span className={styles.title}>{item.title},</span>{' '}
                     {item.companyUrl ? (
                       <a
                         href={item.companyUrl}
@@ -104,6 +112,15 @@ export default function Work() {
                 </div>
                 {item.description && (
                   <p className={styles.description}>{item.description}</p>
+                )}
+                {item.highlights && item.highlights.length > 0 && (
+                  <ul className={styles.highlights}>
+                    {item.highlights.map((highlight, highlightIndex) => (
+                      <li key={highlightIndex} className={styles.highlight}>
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </motion.div>
             ))}

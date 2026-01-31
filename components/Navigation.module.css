@@ -47,7 +47,7 @@
   position: relative;
   padding: 8px 20px;
   border-radius: 100px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -186,7 +186,7 @@
   border-radius: 8px;
   color: var(--text-secondary);
   opacity: 0.5;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 

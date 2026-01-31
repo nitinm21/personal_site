@@ -72,7 +72,7 @@
   color: var(--text-primary);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
 }
 
 .openButton:hover {
@@ -190,13 +190,13 @@
   width: 585px;
   height: 403px;
   margin-top: -201.5px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transform-style: preserve-3d;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .coverItemActive {
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
 }
 
 .coverImageWrapper {
@@ -299,7 +299,7 @@
   background: rgba(255, 255, 255, 0.08);
   border-radius: 2px;
   position: relative;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transition: all 0.2s ease;
   user-select: none;
 }

@@ -50,7 +50,7 @@
   margin-bottom: 24px;
   letter-spacing: -0.02em;
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  cursor: default;
+  cursor: var(--cursor-default);
 }
 
 .name:hover {

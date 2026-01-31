@@ -10,6 +10,7 @@ interface Project {
   title: string;
   subtitle: string;
   url: string;
+  repoUrl?: string;
   image: string;
   imageAlt: string;
 }
@@ -37,6 +38,15 @@ export default function CodingExplorations() {
       url: 'https://exa-lime.vercel.app/',
       image: '/exa-serpapi-preview.png',
       imageAlt: 'Exa v/s SerpAPI Preview',
+    },
+    {
+      id: 'tv-setup-demo',
+      title: 'TV Setup Demo',
+      subtitle: 'Every time you buy a TV, you set up picture preferences manually. A re-imagination of the experience',
+      url: 'https://tv-demo-exa.vercel.app/',
+      repoUrl: 'https://github.com/nitinm21/tv_demo',
+      image: '/tv-setup-demo-preview.png',
+      imageAlt: 'TV Setup Demo Preview',
     },
     {
       id: 'langchain',
@@ -175,7 +185,23 @@ export default function CodingExplorations() {
                 <div className={styles.header}>
                   <div className={styles.titleContainer}>
                     <h2 className={styles.title}>{project.title}</h2>
-                    <p className={styles.subtitle}>{project.subtitle}</p>
+                    <p className={styles.subtitle}>
+                      {project.subtitle}
+                      {project.repoUrl ? (
+                        <>
+                          .{' '}
+                          <a
+                            href={project.repoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.repoLink}
+                          >
+                            GitHub repo
+                          </a>
+                          .
+                        </>
+                      ) : null}
+                    </p>
                   </div>
                   <a
                     href={project.url}
@@ -283,7 +309,23 @@ export default function CodingExplorations() {
               transition={{ duration: 0.3 }}
             >
               <h2 className={styles.coverflowTitle}>{projects[activeIndex].title}</h2>
-              <p className={styles.coverflowSubtitle}>{projects[activeIndex].subtitle}</p>
+              <p className={styles.coverflowSubtitle}>
+                {projects[activeIndex].subtitle}
+                {projects[activeIndex].repoUrl ? (
+                  <>
+                    .{' '}
+                    <a
+                      href={projects[activeIndex].repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.repoLink}
+                    >
+                      GitHub repo
+                    </a>
+                    .
+                  </>
+                ) : null}
+              </p>
               <span className={styles.coverflowHint}>Scroll or drag to navigate</span>
             </motion.div>
 

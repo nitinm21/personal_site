@@ -6,8 +6,38 @@
 }
 
 .content {
-  max-width: 640px;
+  position: relative;
+  max-width: 700px;
   width: 100%;
+  padding: 48px 40px;
+  border-radius: 24px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--glass-glow-gradient);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.content:hover {
+  background: var(--card-bg-hover);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-4px);
+}
+
+.content:hover::before {
+  opacity: 0.5;
 }
 
 .section {
@@ -26,7 +56,7 @@
   letter-spacing: 0.08em;
   margin-bottom: 24px;
   transition: all 0.3s ease;
-  cursor: default;
+  cursor: var(--cursor-default);
 }
 
 .sectionTitle:hover {
@@ -42,10 +72,11 @@
 
 .item {
   position: relative;
+  z-index: 0;
   padding: 20px;
-  margin: 0 -20px;
+  margin: 0;
   border-radius: 16px;
-  cursor: default;
+  cursor: var(--cursor-default);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid transparent;
 }
@@ -94,10 +125,6 @@
   color: var(--text-primary);
 }
 
-.separator {
-  color: var(--text-tertiary);
-}
-
 .company {
   font-size: 16px;
   color: var(--text-secondary);
@@ -120,9 +147,26 @@
 }
 
 .years {
-  font-size: 14px;
-  color: var(--text-tertiary);
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.item:hover .years {
+  color: var(--text-primary);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow-hover);
 }
 
 .description {
@@ -130,6 +174,31 @@
   color: var(--text-secondary);
   line-height: 1.6;
   margin-top: 8px;
+}
+
+.highlights {
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.highlight {
+  position: relative;
+  padding-left: 18px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.highlight::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--text-tertiary);
 }
 
 .school {
@@ -143,8 +212,12 @@
     padding: 100px 20px 60px;
   }
 
+  .content {
+    padding: 36px 24px;
+    border-radius: 20px;
+  }
+
   .item {
-    margin: 0 -12px;
     padding: 16px;
   }
 
@@ -155,7 +228,7 @@
 
   .years {
     order: -1;
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .title {

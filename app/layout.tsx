@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import PageTransition from '@/components/PageTransition';
-import GlowTrailBackground from '@/components/GlowTrailBackground';
 import { ViewModeProvider } from '@/contexts/ViewModeContext';
 import './globals.css';
 
@@ -23,7 +22,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <GlowTrailBackground />
         <ViewModeProvider>
           <Navigation />
           <main>

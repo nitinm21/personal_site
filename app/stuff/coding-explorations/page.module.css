@@ -48,6 +48,25 @@
   line-height: 1.5;
 }
 
+.repoLink {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: color 0.2s ease, border-color 0.2s ease;
+  cursor: var(--cursor-pointer);
+}
+
+.repoLink:hover {
+  color: var(--text-secondary);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.repoLink:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .openButton {
   display: flex;
   align-items: center;
@@ -55,7 +74,7 @@
   color: var(--text-primary);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
 }
 
 .openButton:hover {
@@ -148,13 +167,13 @@
   width: 585px;
   height: 403px;
   margin-top: -201.5px;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transform-style: preserve-3d;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .coverItemActive {
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
 }
 
 .coverImageWrapper {
@@ -257,7 +276,7 @@
   background: rgba(255, 255, 255, 0.08);
   border-radius: 2px;
   position: relative;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transition: all 0.2s ease;
   user-select: none;
 }
@@ -300,6 +319,14 @@
 
   .customScrollbar:hover .scrollbarThumb {
     background: rgba(0, 0, 0, 0.4);
+  }
+
+  .repoLink {
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .repoLink:hover {
+    border-color: rgba(0, 0, 0, 0.45);
   }
 }
 

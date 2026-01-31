@@ -54,6 +54,10 @@
   --card-border: rgba(255, 255, 255, 0.4);
   --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
   --card-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.08);
+
+  /* Custom cursor */
+  --cursor-default: url("/cursors/compass-cursor.svg") 54 24, auto;
+  --cursor-pointer: url("/cursors/compass-cursor.svg") 54 24, pointer;
 }
 
 * {
@@ -75,11 +79,21 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: var(--cursor-default);
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  cursor: var(--cursor-pointer);
+}
+
+button,
+input[type='button'],
+input[type='submit'],
+[role='button'],
+summary {
+  cursor: var(--cursor-pointer);
 }
 
 /* Glass morphism base styles */
