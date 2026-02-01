@@ -55,9 +55,9 @@
   --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
   --card-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.08);
 
-  /* Custom cursor */
-  --cursor-default: url("/cursors/compass-cursor.svg") 54 24, auto;
-  --cursor-pointer: url("/cursors/compass-cursor.svg") 54 24, pointer;
+  /* Cursor defaults */
+  --cursor-default: auto;
+  --cursor-pointer: pointer;
 }
 
 * {
