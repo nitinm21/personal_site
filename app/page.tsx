@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <motion.div
-        className={styles.content}
+        className={`${styles.content} ${styles.holographicCard}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}

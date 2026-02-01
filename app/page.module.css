@@ -33,6 +33,35 @@
   pointer-events: none;
 }
 
+.content > * {
+  position: relative;
+  z-index: 2;
+}
+
+.holographicCard {
+  overflow: hidden;
+}
+
+.holographicCard::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent 30%,
+    rgba(0, 255, 255, 0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .content:hover {
   background: var(--card-bg-hover);
   box-shadow: var(--card-shadow-hover);
@@ -41,6 +70,11 @@
 
 .content:hover::before {
   opacity: 0.5;
+}
+
+.holographicCard:hover::after {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
 }
 
 .name {
