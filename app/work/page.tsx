@@ -1,6 +1,8 @@
 'use client';
 
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useSpotlightReveal } from '@/utils/useSpotlightReveal';
 import styles from './page.module.css';
 
 interface ExperienceItem {
@@ -73,10 +75,18 @@ const itemVariants = {
 };
 
 export default function Work() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useSpotlightReveal(containerRef, cardRef);
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
+      <div className={styles.revealLayer} aria-hidden="true" />
+      <div className={styles.revealBlocker} aria-hidden="true" />
       <motion.div
         className={styles.content}
+        ref={cardRef}
         variants={containerVariants}
         initial="hidden"
         animate="visible"

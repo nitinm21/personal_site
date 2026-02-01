@@ -1,14 +1,24 @@
 'use client';
 
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import SocialLinks from '@/components/SocialLinks';
+import { useSpotlightReveal } from '@/utils/useSpotlightReveal';
 import styles from './page.module.css';
 
 export default function Home() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useSpotlightReveal(containerRef, cardRef);
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
+      <div className={styles.revealLayer} aria-hidden="true" />
+      <div className={styles.revealBlocker} aria-hidden="true" />
       <motion.div
         className={`${styles.content} ${styles.holographicCard}`}
+        ref={cardRef}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
