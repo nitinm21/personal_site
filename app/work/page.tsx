@@ -74,6 +74,16 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
+const listVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
+    },
+  },
+};
+
 export default function Work() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -93,7 +103,7 @@ export default function Work() {
       >
         <motion.section className={styles.section} variants={itemVariants}>
           <h2 className={styles.sectionTitle}>Experience</h2>
-          <div className={styles.list}>
+          <motion.div className={styles.list} variants={listVariants}>
             {experience.map((item, index) => (
               <motion.div
                 key={index}
@@ -134,12 +144,12 @@ export default function Work() {
                 )}
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.section>
 
         <motion.section className={styles.section} variants={itemVariants}>
           <h2 className={styles.sectionTitle}>Education</h2>
-          <div className={styles.list}>
+          <motion.div className={styles.list} variants={listVariants}>
             {education.map((item, index) => (
               <motion.div
                 key={index}
@@ -157,7 +167,7 @@ export default function Work() {
                 <p className={styles.school}>{item.school}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.section>
       </motion.div>
     </div>
