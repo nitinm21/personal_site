@@ -24,7 +24,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
         initial: { opacity: 0 },
         enter: {
           opacity: 1,
-          transition: { duration: 0.4, ease: baseEase },
+          transition: { duration: 0.45, ease: baseEase },
         },
         exit: {
           opacity: 0,
@@ -39,20 +39,22 @@ export default function PageTransition({ children }: PageTransitionProps) {
         exit: { opacity: 1, y: 0 },
       }
     : {
-        initial: { opacity: 0, y: 8 },
+        initial: { opacity: 0, y: 14, scale: 0.995 },
         enter: {
           opacity: 1,
           y: 0,
+          scale: 1,
           transition: {
-            duration: 0.7,
+            duration: 0.8,
             ease: snapEase,
             delay: 0.12,
           },
         },
         exit: {
           opacity: 0,
-          y: -6,
-          transition: { duration: 0.25, ease: baseEase },
+          y: -8,
+          scale: 0.995,
+          transition: { duration: 0.3, ease: baseEase },
         },
       };
 
