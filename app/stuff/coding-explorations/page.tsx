@@ -178,9 +178,9 @@ export default function CodingExplorations() {
           <motion.div
             key="list"
             className={styles.content}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
             {projects.map((project, index) => (
@@ -313,7 +313,7 @@ export default function CodingExplorations() {
             <motion.div
               className={styles.coverflowInfo}
               key={projects[activeIndex].id}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >

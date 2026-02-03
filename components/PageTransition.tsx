@@ -1,61 +1,90 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
 interface PageTransitionProps {
   children: React.ReactNode;
 }
 
-const pageVariants = {
-  initial: {
-    opacity: 0,
-    scale: 0.98,
-    filter: 'blur(10px)',
-    y: 12
-  },
-  enter: {
-    opacity: 1,
-    scale: 1,
-    filter: 'blur(0px)',
-    y: 0
-  },
-  exit: {
-    opacity: 0,
-    scale: 0.98,
-    filter: 'blur(6px)',
-    y: -8
-  }
-};
-
-const pageTransition = {
-  duration: 0.4,
-  ease: [0.32, 0.72, 0, 1], // Apple-like ease curve
-  opacity: { duration: 0.3, ease: 'easeOut' },
-  filter: { duration: 0.35 },
-  scale: { duration: 0.4 },
-  y: { duration: 0.35, ease: [0.32, 0.72, 0, 1] }
-};
+const baseEase = [0.22, 0.61, 0.36, 1];
+const snapEase = [0.16, 1, 0.3, 1];
 
 export default function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
+  const reduceMotion = useReducedMotion();
+
+  const shellVariants = reduceMotion
+    ? {
+        initial: { opacity: 1 },
+        enter: { opacity: 1 },
+        exit: { opacity: 1 },
+      }
+    : {
+        initial: { opacity: 0 },
+        enter: {
+          opacity: 1,
+          transition: { duration: 0.4, ease: baseEase },
+        },
+        exit: {
+          opacity: 0,
+          transition: { duration: 0.25, ease: [0.4, 0, 1, 1] },
+        },
+      };
+
+  const contentVariants = reduceMotion
+    ? {
+        initial: { opacity: 1, y: 0 },
+        enter: { opacity: 1, y: 0 },
+        exit: { opacity: 1, y: 0 },
+      }
+    : {
+        initial: { opacity: 0, y: 8 },
+        enter: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.7,
+            ease: snapEase,
+            delay: 0.12,
+          },
+        },
+        exit: {
+          opacity: 0,
+          y: -6,
+          transition: { duration: 0.25, ease: baseEase },
+        },
+      };
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       <motion.div
         key={pathname}
-        variants={pageVariants}
+        className="page-transition"
+        variants={shellVariants}
         initial="initial"
         animate="enter"
         exit="exit"
-        transition={pageTransition}
         style={{
           width: '100%',
-          height: '100%',
-          willChange: 'opacity, transform, filter'
+          minHeight: '100%',
+          willChange: 'opacity',
         }}
       >
-        {children}
+        <motion.div
+          className="page-transition__content"
+          variants={contentVariants}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          style={{
+            width: '100%',
+            height: '100%',
+            willChange: 'opacity, transform',
+          }}
+        >
+          {children}
+        </motion.div>
       </motion.div>
     </AnimatePresence>
   );

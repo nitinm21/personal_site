@@ -23,10 +23,10 @@ interface EducationItem {
 const experience: ExperienceItem[] = [
   {
     title: 'AI Product Manager',
-    company: 'GoodPower',
+    company: 'Patent Response',
     years: '2025 - Present',
     highlights: [
-      'Building products to accelerate the transition to clean energy.',
+      'Building products for IP Attorneys to help them file patents faster and more efficiently.',
     ],
   },
   {
@@ -70,7 +70,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 6 },
   visible: { opacity: 1, y: 0 },
 };
 

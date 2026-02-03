@@ -19,13 +19,13 @@ export default function Home() {
       <motion.div
         className={`${styles.content} ${styles.holographicCard}`}
         ref={cardRef}
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
         <motion.h1
           className={styles.name}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
@@ -34,7 +34,7 @@ export default function Home() {
 
         <motion.p
           className={styles.bio}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
@@ -45,7 +45,7 @@ export default function Home() {
 
         <motion.p
           className={styles.tagline}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
@@ -53,7 +53,7 @@ export default function Home() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
