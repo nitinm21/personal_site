@@ -89,6 +89,7 @@ export default function Navigation() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleStuffClick}
+              data-cursor="interactive"
             >
               {isStuffActive && (
                 <motion.div

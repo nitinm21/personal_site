@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import CustomCursor from '@/components/CustomCursor';
 import Navigation from '@/components/Navigation';
 import PageTransition from '@/components/PageTransition';
 import { ViewModeProvider } from '@/contexts/ViewModeContext';
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <CustomCursor />
         <ViewModeProvider>
           <Navigation />
           <main>

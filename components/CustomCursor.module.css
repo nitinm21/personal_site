@@ -1,0 +1,34 @@
+.cursor {
+  --cursor-size: 22px;
+  --cursor-border: 1.5px;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: 50%;
+  background-color: #000000;
+  border: var(--cursor-border) solid #ffffff;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transform: translate3d(-9999px, -9999px, 0);
+  transition: opacity 0.2s ease, background-color 0.15s ease, border-color 0.15s ease;
+  will-change: transform;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.interactive {
+  background-color: #ffffff;
+  border-color: #000000;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}

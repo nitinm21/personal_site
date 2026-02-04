@@ -356,6 +356,7 @@ export default function InTheWild() {
                       className={`${styles.coverItem} ${index === activeIndex ? styles.coverItemActive : ''}`}
                       style={transformStyle}
                       onClick={() => handleCoverClick(index)}
+                      data-cursor="interactive"
                       initial={false}
                       animate={transformStyle}
                       transition={{
@@ -420,6 +421,7 @@ export default function InTheWild() {
               className={styles.customScrollbar}
               ref={scrollbarRef}
               onMouseDown={handleScrollbarMouseDown}
+              data-cursor="interactive"
             >
               <motion.div
                 className={styles.scrollbarThumb}

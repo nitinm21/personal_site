@@ -96,6 +96,24 @@ summary {
   cursor: var(--cursor-pointer);
 }
 
+@media (hover: hover) and (pointer: fine) {
+  html[data-custom-cursor='true'],
+  body[data-custom-cursor='true'] {
+    --cursor-default: none;
+    --cursor-pointer: none;
+    cursor: none;
+  }
+
+  html[data-custom-cursor='true'] *,
+  html[data-custom-cursor='true'] *::before,
+  html[data-custom-cursor='true'] *::after,
+  body[data-custom-cursor='true'] *,
+  body[data-custom-cursor='true'] *::before,
+  body[data-custom-cursor='true'] *::after {
+    cursor: none !important;
+  }
+}
+
 /* Glass morphism base styles */
 .glass {
   background: var(--glass-bg);

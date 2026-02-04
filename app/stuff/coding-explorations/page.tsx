@@ -279,6 +279,7 @@ export default function CodingExplorations() {
                       className={`${styles.coverItem} ${index === activeIndex ? styles.coverItemActive : ''}`}
                       style={transformStyle}
                       onClick={() => handleCoverClick(index)}
+                      data-cursor="interactive"
                       initial={false}
                       animate={transformStyle}
                       transition={{
@@ -343,6 +344,7 @@ export default function CodingExplorations() {
               className={styles.customScrollbar}
               ref={scrollbarRef}
               onMouseDown={handleScrollbarMouseDown}
+              data-cursor="interactive"
             >
               <motion.div
                 className={styles.scrollbarThumb}
