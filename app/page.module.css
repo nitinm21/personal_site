@@ -15,7 +15,7 @@
 .revealLayer {
   position: absolute;
   inset: 0;
-  background-image: url('/background_image.jpg');
+  background-image: url('/jwst_reveal_image.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

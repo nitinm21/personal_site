@@ -109,29 +109,27 @@
   text-wrap: balance;
 }
 
+.titleText {
+  padding-bottom: 2px;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .titleText,
+.card:focus-visible .titleText {
+  background-size: 100% 2px;
+}
+
 .description {
   margin: 0;
   color: var(--text-secondary);
   font-size: 15px;
   line-height: 1.55;
-}
-
-.cta {
-  margin-top: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-primary);
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.cta svg {
-  transition: transform 0.25s ease;
-}
-
-.card:hover .cta svg {
-  transform: translate(2px, -2px);
 }
 
 .media {
