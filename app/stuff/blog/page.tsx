@@ -13,7 +13,6 @@ export default function BlogPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
       >
-        <p className={styles.eyebrow}>Stuff / Blog</p>
         <h1 className={styles.heading}>Writing archive</h1>
         <p className={styles.subheading}>
           The latest posts from my Substack, focused on product thinking, strategy, and building.

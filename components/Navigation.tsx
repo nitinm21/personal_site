@@ -162,6 +162,24 @@ export default function Navigation() {
             </motion.div>
           </Link>
 
+          {/* Workflows */}
+          <Link href="/workflows" className={styles.linkWrapper}>
+            <motion.div
+              className={`${styles.pill} ${pathname === '/workflows' ? styles.active : ''}`}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {pathname === '/workflows' && (
+                <motion.div
+                  className={styles.activeBg}
+                  layoutId="activeNav"
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                />
+              )}
+              <span className={styles.label}>Workflows</span>
+            </motion.div>
+          </Link>
+
           {/* View Toggle - only on coverflow-enabled pages */}
           <AnimatePresence>
             {showViewToggle && (

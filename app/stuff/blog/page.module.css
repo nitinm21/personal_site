@@ -10,15 +10,6 @@
   margin-bottom: 36px;
 }
 
-.eyebrow {
-  margin: 0 0 8px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-}
-
 .heading {
   margin: 0 0 10px;
   font-size: clamp(30px, 4.1vw, 44px);
