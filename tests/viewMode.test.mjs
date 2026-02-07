@@ -20,6 +20,7 @@ test('defaults to list on mobile phones for coverflow pages', () => {
 
 test('defaults to list on non-coverflow pages', () => {
   assert.equal(getDefaultViewMode('/work', false), 'list');
+  assert.equal(getDefaultViewMode('/stuff/blog', false), 'list');
 });
 
 test('mobile phone user agent detection', () => {

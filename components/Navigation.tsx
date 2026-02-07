@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { useViewMode } from '@/contexts/ViewModeContext';
+import { isCoverflowDefaultPath } from '@/utils/viewMode.mjs';
 import styles from './Navigation.module.css';
 
 const navItems = [
@@ -13,6 +14,7 @@ const navItems = [
 ];
 
 const stuffSubItems = [
+  { href: '/stuff/blog', label: 'Blog' },
   { href: '/stuff/coding-explorations', label: 'Coding explorations' },
   { href: '/stuff/in-the-wild', label: 'In the wild' },
 ];
@@ -21,7 +23,7 @@ export default function Navigation() {
   const pathname = usePathname();
   const [stuffOpen, setStuffOpen] = useState(false);
   const isStuffActive = pathname.startsWith('/stuff');
-  const isStuffPage = pathname.startsWith('/stuff/');
+  const showViewToggle = isCoverflowDefaultPath(pathname);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { viewMode, setViewMode } = useViewMode();
 
@@ -160,9 +162,9 @@ export default function Navigation() {
             </motion.div>
           </Link>
 
-          {/* View Toggle - only on /stuff/* pages */}
+          {/* View Toggle - only on coverflow-enabled pages */}
           <AnimatePresence>
-            {isStuffPage && (
+            {showViewToggle && (
               <motion.div
                 className={styles.viewToggleSection}
                 initial={{ opacity: 0, width: 0 }}
