@@ -2,7 +2,11 @@
   "name": "nitin-murali-portfolio",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20 <25"
+  },
   "scripts": {
+    "predev": "node scripts/check-node-version.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

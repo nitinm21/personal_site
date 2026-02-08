@@ -1,17 +1,24 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { BLOG_POSTS } from './posts';
 import styles from './page.module.css';
 
 export default function BlogPage() {
+  const reduceMotion = useReducedMotion();
+
+  const introTransition = reduceMotion
+    ? { duration: 0 }
+    : { duration: 0.5, ease: [0.4, 0, 0.2, 1] };
+
   return (
     <div className={styles.container}>
       <motion.section
         className={styles.intro}
         initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.45 }}
+        transition={introTransition}
       >
         <h1 className={styles.heading}>Writing archive</h1>
         <p className={styles.subheading}>
@@ -25,8 +32,17 @@ export default function BlogPage() {
             key={post.id}
             className={styles.listItem}
             initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.12 + index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={
+              reduceMotion
+                ? { duration: 0 }
+                : {
+                    duration: 0.45,
+                    delay: Math.min(0.12 + index * 0.06, 0.24),
+                    ease: [0.22, 1, 0.36, 1],
+                  }
+            }
           >
             <article className={styles.article}>
               <a
