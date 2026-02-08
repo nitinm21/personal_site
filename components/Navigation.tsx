@@ -162,21 +162,21 @@ export default function Navigation() {
             </motion.div>
           </Link>
 
-          {/* Workflows */}
-          <Link href="/workflows" className={styles.linkWrapper}>
+          {/* BTS */}
+          <Link href="/behind-the-scenes" className={styles.linkWrapper}>
             <motion.div
-              className={`${styles.pill} ${pathname === '/workflows' ? styles.active : ''}`}
+              className={`${styles.pill} ${pathname === '/behind-the-scenes' ? styles.active : ''}`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              {pathname === '/workflows' && (
+              {pathname === '/behind-the-scenes' && (
                 <motion.div
                   className={styles.activeBg}
                   layoutId="activeNav"
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}
-              <span className={styles.label}>Workflows</span>
+              <span className={styles.label}>BTS</span>
             </motion.div>
           </Link>
 

@@ -1,0 +1,68 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 80px;
+}
+
+.content {
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+}
+
+.videoCard {
+  margin-top: 32px;
+}
+
+.videoEmbed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 100 / 64.7368;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(63, 69, 81, 0.16);
+}
+
+.videoEmbed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.videoMeta {
+  margin-top: 14px;
+  margin-bottom: 0;
+  color: var(--text-secondary);
+}
+
+.videoMeta a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 100px 16px 60px;
+  }
+
+  .videoCard {
+    margin-top: 24px;
+  }
+}
