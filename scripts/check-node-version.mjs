@@ -1,6 +1,6 @@
 const [major] = process.versions.node.split('.').map(Number);
 
-const minMajor = 20;
+const minMajor = 24;
 const maxExclusive = 25;
 
 if (Number.isNaN(major) || major < minMajor || major >= maxExclusive) {
@@ -13,4 +13,3 @@ if (Number.isNaN(major) || major < minMajor || major >= maxExclusive) {
   );
   process.exit(1);
 }
-

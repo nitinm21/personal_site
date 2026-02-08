@@ -8,8 +8,8 @@ type Bounds = {
 };
 
 export function useSpotlightReveal(
-  containerRef: RefObject<HTMLElement>,
-  cardRef: RefObject<HTMLElement>
+  containerRef: RefObject<HTMLElement | null>,
+  cardRef: RefObject<HTMLElement | null>
 ) {
   const rafRef = useRef<number | null>(null);
   const lastPoint = useRef<{ x: number; y: number } | null>(null);
