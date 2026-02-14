@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import CustomCursor from '@/components/CustomCursor';
-import Navigation from '@/components/Navigation';
-import PageTransition from '@/components/PageTransition';
+import AudienceModeShell from '@/components/AudienceModeShell';
+import AudienceToggle from '@/components/AudienceToggle';
+import { AudienceModeProvider } from '@/contexts/AudienceModeContext';
 import { ViewModeProvider } from '@/contexts/ViewModeContext';
 import './globals.css';
 
@@ -37,10 +38,10 @@ export default function RootLayout({
       <body>
         <CustomCursor />
         <ViewModeProvider>
-          <Navigation />
-          <main>
-            <PageTransition>{children}</PageTransition>
-          </main>
+          <AudienceModeProvider>
+            <AudienceModeShell>{children}</AudienceModeShell>
+            <AudienceToggle />
+          </AudienceModeProvider>
         </ViewModeProvider>
       </body>
     </html>

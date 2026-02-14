@@ -39,3 +39,5 @@ next-env.d.ts
 *.md
 # But keep README.md
 !README.md
+# Keep agent context doc available to tooling
+!SITE_AGENT_CONTEXT.md
