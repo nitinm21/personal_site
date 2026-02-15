@@ -1,15 +1,20 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
 import styles from './MachineContextView.module.css';
 
 type LoadStatus = 'loading' | 'success' | 'error';
+const SIGNAL_EFFECT_DURATION_MS = 620;
+const SIGNAL_EFFECT_REDUCED_DURATION_MS = 220;
 
 export default function MachineContextView() {
   const abortControllerRef = useRef<AbortController | null>(null);
+  const reduceMotion = useReducedMotion();
   const [status, setStatus] = useState<LoadStatus>('loading');
   const [content, setContent] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showSignalEffect, setShowSignalEffect] = useState(true);
 
   const loadContext = useCallback(async () => {
     abortControllerRef.current?.abort();
@@ -48,8 +53,30 @@ export default function MachineContextView() {
     return () => abortControllerRef.current?.abort();
   }, [loadContext]);
 
+  useEffect(() => {
+    const duration = reduceMotion
+      ? SIGNAL_EFFECT_REDUCED_DURATION_MS
+      : SIGNAL_EFFECT_DURATION_MS;
+    const timeoutId = window.setTimeout(() => {
+      setShowSignalEffect(false);
+    }, duration);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [reduceMotion]);
+
   return (
     <section className={styles.wrapper} aria-live="polite">
+      {showSignalEffect && (
+        <div
+          className={`${styles.signalEffect} ${reduceMotion ? styles.signalEffectReduced : ''}`}
+          aria-hidden="true"
+        >
+          <div className={styles.signalNoise} />
+          <div className={styles.signalBandTop} />
+          <div className={styles.signalBandBottom} />
+          <div className={styles.signalGhost} />
+        </div>
+      )}
       <div className={styles.panel}>
         {status === 'loading' && (
           <p className={styles.status}>Loading `SITE_AGENT_CONTEXT.md`...</p>

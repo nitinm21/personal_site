@@ -3,11 +3,15 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  position: relative;
+  isolation: isolate;
   padding: 108px clamp(16px, 3vw, 28px) calc(132px + env(safe-area-inset-bottom));
 }
 
 .panel {
   width: min(1040px, 100%);
+  position: relative;
+  z-index: 1;
   border-radius: 20px;
   border: 1px solid var(--glass-border);
   background: var(--glass-bg);
@@ -15,6 +19,91 @@
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   box-shadow: var(--glass-shadow);
   padding: clamp(16px, 2.8vw, 30px);
+}
+
+.signalEffect {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  animation: signalEffectOut 620ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.signalNoise,
+.signalGhost {
+  position: absolute;
+  inset: 0;
+}
+
+.signalNoise {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.18) 0 1px,
+      rgba(0, 0, 0, 0.16) 1px 2px,
+      transparent 2px 4px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(0, 0, 0, 0.22) 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+  opacity: 0.48;
+  animation: signalNoiseFlicker 220ms steps(2, end) 3;
+}
+
+.signalBandTop,
+.signalBandBottom {
+  position: absolute;
+  left: -8%;
+  width: 116%;
+  height: 16%;
+  opacity: 0.5;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.34) 48%,
+    transparent 100%
+  );
+}
+
+.signalBandTop {
+  top: 18%;
+  animation: signalBandSlideTop 400ms steps(3, end);
+}
+
+.signalBandBottom {
+  top: 58%;
+  animation: signalBandSlideBottom 420ms steps(3, end);
+}
+
+.signalGhost {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 72, 72, 0.14) 0%,
+    transparent 35%,
+    transparent 65%,
+    rgba(82, 165, 255, 0.14) 100%
+  );
+  opacity: 0.5;
+  animation: signalGhostShift 460ms steps(2, end);
+}
+
+.signalEffectReduced {
+  animation-duration: 220ms;
+}
+
+.signalEffectReduced .signalBandTop,
+.signalEffectReduced .signalBandBottom,
+.signalEffectReduced .signalGhost {
+  display: none;
+}
+
+.signalEffectReduced .signalNoise {
+  opacity: 0.24;
+  animation: none;
 }
 
 .article {
@@ -62,6 +151,112 @@
 
 .retryButton:hover {
   border-color: var(--glass-border-hover);
+}
+
+@keyframes signalEffectOut {
+  0% {
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 0.62;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes signalNoiseFlicker {
+  0% {
+    opacity: 0.12;
+    transform: translateX(-1.5px);
+  }
+
+  33% {
+    opacity: 0.42;
+    transform: translateX(1.5px);
+  }
+
+  66% {
+    opacity: 0.24;
+    transform: translateX(-1px);
+  }
+
+  100% {
+    opacity: 0.08;
+    transform: translateX(0);
+  }
+}
+
+@keyframes signalGhostShift {
+  0% {
+    transform: translateX(0);
+    opacity: 0.42;
+  }
+
+  40% {
+    transform: translateX(4px);
+    opacity: 0.5;
+  }
+
+  75% {
+    transform: translateX(-3px);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 0.08;
+  }
+}
+
+@keyframes signalBandSlideTop {
+  0% {
+    transform: translateX(-4px);
+    opacity: 0.5;
+  }
+
+  35% {
+    transform: translateX(2px);
+    opacity: 0.4;
+  }
+
+  75% {
+    transform: translateX(-1px);
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes signalBandSlideBottom {
+  0% {
+    transform: translateX(4px);
+    opacity: 0.5;
+  }
+
+  45% {
+    transform: translateX(-2px);
+    opacity: 0.35;
+  }
+
+  80% {
+    transform: translateX(1px);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
 }
 
 @media (max-width: 640px) {
