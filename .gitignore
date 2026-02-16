@@ -36,7 +36,7 @@ next-env.d.ts
 .claude
 
 # Ignore all markdown files
-*.md
+# *.md
 # But keep README.md
 !README.md
 # Keep agent context doc available to tooling

@@ -3,10 +3,45 @@
   display: flex;
   justify-content: center;
   padding: 120px 24px 84px;
+  position: relative;
+  isolation: isolate;
+  --reveal-opacity: 0;
+  --reveal-x: 50%;
+  --reveal-y: 50%;
+  --reveal-radius: clamp(160px, 12vw, 260px);
+}
+
+.revealLayer {
+  position: absolute;
+  inset: 0;
+  background-image: url('/jwst_reveal_image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: var(--reveal-opacity);
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(
+    circle var(--reveal-radius) at var(--reveal-x) var(--reveal-y),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.85) 45%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  mask-repeat: no-repeat;
+  -webkit-mask-image: radial-gradient(
+    circle var(--reveal-radius) at var(--reveal-x) var(--reveal-y),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.85) 45%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  -webkit-mask-repeat: no-repeat;
 }
 
 .content {
   width: min(1120px, 100%);
+  position: relative;
+  z-index: 2;
 }
 
 .header {

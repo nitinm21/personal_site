@@ -86,17 +86,14 @@ const listVariants = {
 
 export default function Work() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
 
-  useSpotlightReveal(containerRef, cardRef);
+  useSpotlightReveal(containerRef);
 
   return (
     <div className={styles.container} ref={containerRef}>
       <div className={styles.revealLayer} aria-hidden="true" />
-      <div className={styles.revealBlocker} aria-hidden="true" />
       <motion.div
         className={styles.content}
-        ref={cardRef}
         variants={containerVariants}
         initial="hidden"
         animate="visible"

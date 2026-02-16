@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { useSpotlightReveal } from '@/utils/useSpotlightReveal';
 import styles from './page.module.css';
 
 interface BTSVideo {
@@ -101,8 +102,11 @@ const getAutoplayEmbedUrl = (video: BTSVideo): string => {
 
 export default function BehindTheScenesPage() {
   const reduceMotion = useReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
   const [query, setQuery] = useState('');
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+
+  useSpotlightReveal(containerRef);
 
   const filteredVideos = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -156,7 +160,8 @@ export default function BehindTheScenesPage() {
   }, [activeVideo]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
+      <div className={styles.revealLayer} aria-hidden="true" />
       <motion.div
         className={styles.content}
         initial={{ opacity: 0, y: reduceMotion ? 0 : 8 }}

@@ -38,18 +38,6 @@
   -webkit-mask-repeat: no-repeat;
 }
 
-.revealBlocker {
-  position: absolute;
-  left: var(--card-left, 0px);
-  top: var(--card-top, 0px);
-  width: var(--card-width, 0px);
-  height: var(--card-height, 0px);
-  border-radius: var(--card-radius, 24px);
-  background: var(--bg-primary);
-  pointer-events: none;
-  z-index: 1;
-}
-
 .content {
   position: relative;
   max-width: 700px;

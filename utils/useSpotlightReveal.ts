@@ -9,7 +9,7 @@ type Bounds = {
 
 export function useSpotlightReveal(
   containerRef: RefObject<HTMLElement | null>,
-  cardRef: RefObject<HTMLElement | null>
+  cardRef?: RefObject<HTMLElement | null>
 ) {
   const rafRef = useRef<number | null>(null);
   const lastPoint = useRef<{ x: number; y: number } | null>(null);
@@ -17,13 +17,17 @@ export function useSpotlightReveal(
 
   useEffect(() => {
     const container = containerRef.current;
-    const card = cardRef.current;
+    const card = cardRef?.current ?? null;
 
-    if (!container || !card) {
+    if (!container) {
       return;
     }
 
     const updateCardBounds = () => {
+      if (!card) {
+        return;
+      }
+
       const containerRect = container.getBoundingClientRect();
       const cardRect = card.getBoundingClientRect();
       const left = Math.max(0, cardRect.left - containerRect.left);
@@ -49,11 +53,13 @@ export function useSpotlightReveal(
       }
     };
 
-    updateCardBounds();
-
-    const resizeObserver = new ResizeObserver(updateCardBounds);
-    resizeObserver.observe(container);
-    resizeObserver.observe(card);
+    let resizeObserver: ResizeObserver | null = null;
+    if (card) {
+      updateCardBounds();
+      resizeObserver = new ResizeObserver(updateCardBounds);
+      resizeObserver.observe(container);
+      resizeObserver.observe(card);
+    }
 
     const updateReveal = () => {
       rafRef.current = null;
@@ -64,11 +70,12 @@ export function useSpotlightReveal(
 
       const { x, y } = lastPoint.current;
       const bounds = cardBounds.current;
-      const insideCard =
-        x >= bounds.left &&
-        x <= bounds.right &&
-        y >= bounds.top &&
-        y <= bounds.bottom;
+      const insideCard = card
+        ? x >= bounds.left &&
+          x <= bounds.right &&
+          y >= bounds.top &&
+          y <= bounds.bottom
+        : false;
 
       container.style.setProperty('--reveal-opacity', insideCard ? '0' : '1');
 
@@ -100,7 +107,9 @@ export function useSpotlightReveal(
     return () => {
       container.removeEventListener('pointermove', handlePointerMove);
       container.removeEventListener('pointerleave', handlePointerLeave);
-      resizeObserver.disconnect();
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
 
       if (rafRef.current !== null) {
         window.cancelAnimationFrame(rafRef.current);
