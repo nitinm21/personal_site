@@ -1,8 +1,8 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { BLOG_POSTS } from './posts';
 import styles from './page.module.css';
+import { BLOG_POSTS } from './posts';
 
 export default function BlogPage() {
   const reduceMotion = useReducedMotion();

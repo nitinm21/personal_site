@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'building-a-blog-page-for-my-site',
+    title: 'Building a /blog page for my site',
+    description: '..without writing a single line of code!',
+    publishedAt: '2026-02-17',
+    publishedLabel: 'Feb 17, 2026',
+    postUrl: 'https://nitinmurali.substack.com/p/building-a-blog-page-for-my-site',
+    openGraphImage: 'https://substackcdn.com/image/fetch/$s_!8_Ss!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb5468246-f85a-4d26-b437-59119084a613_2492x1006.png',
+  },
+  {
     id: 'what-if-anyone-at-your-company-could',
     title: 'What if Anyone at Your Company Could Create a Pull Request?',
     description: 'Thoughts on Replit',
@@ -89,14 +98,5 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedLabel: 'Oct 17, 2021',
     postUrl: 'https://nitinmurali.substack.com/p/product-improvements-spotify-tv',
     openGraphImage: 'https://substackcdn.com/image/fetch/$s_!rFjD!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Feaeea9cd-614a-409b-b339-2b2f4c19357e_420x300.png',
-  },
-  {
-    id: 'no-one-cares-about-your-product',
-    title: 'No one cares about your product',
-    description: "Building with a null hypothesis and the Chekhov's Gun principle",
-    publishedAt: '2021-07-27',
-    publishedLabel: 'Jul 27, 2021',
-    postUrl: 'https://nitinmurali.substack.com/p/no-one-cares-about-your-product',
-    openGraphImage: 'https://substackcdn.com/image/fetch/$s_!NKSj!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F40356cbe-fa14-4b7b-91b6-5bca07ca6d59_420x300.png',
   },
 ];
