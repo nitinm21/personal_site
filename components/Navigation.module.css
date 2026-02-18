@@ -137,18 +137,53 @@
   color: var(--text-secondary);
   text-decoration: none;
   border-radius: 10px;
-  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 1;
+  transition:
+    opacity 0.18s ease,
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.dropdownItem:hover {
+.dropdownItem:hover,
+.dropdownItem:focus-visible {
   background: var(--glass-bg-hover);
   color: var(--text-primary);
-  transform: translateX(4px);
+  transform: translateX(8px);
+  opacity: 1;
+}
+
+.dropdownItem:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
 }
 
 .dropdownItemActive {
   color: var(--text-primary);
   background: var(--glass-bg-hover);
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dropdown:has(.dropdownItem:hover) .dropdownItem {
+    opacity: 0.45;
+    transform: translateX(0);
+  }
+
+  .dropdown:has(.dropdownItem:hover) .dropdownItem:hover {
+    opacity: 1;
+    transform: translateX(8px);
+  }
+}
+
+.dropdown:focus-within .dropdownItem {
+  opacity: 0.45;
+  transform: translateX(0);
+}
+
+.dropdown:focus-within .dropdownItem:focus-visible {
+  opacity: 1;
+  transform: translateX(8px);
 }
 
 /* View Toggle Section */
