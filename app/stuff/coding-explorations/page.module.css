@@ -177,6 +177,7 @@
 }
 
 .coverImageWrapper {
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 12px;
@@ -186,7 +187,8 @@
   box-shadow:
     0 25px 50px -12px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(255, 255, 255, 0.05);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform, box-shadow;
 }
 
 .coverItemActive .coverImageWrapper {
@@ -197,16 +199,54 @@
   border-color: var(--glass-border-hover);
 }
 
+.coverItemActive:hover .coverImageWrapper {
+  transform: translateY(-6px);
+  box-shadow:
+    0 44px 72px -18px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 0 110px rgba(255, 255, 255, 0.08);
+}
+
 .coverImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .coverItemActive:hover .coverImage {
-  transform: scale(1.02);
+  transform: scale(1.035);
+  filter: saturate(1.03) brightness(1.02);
+}
+
+.coverActionHint {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(10, 10, 10, 0.62);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.coverItemActive:hover .coverActionHint {
+  opacity: 1;
+  transform: translateY(0);
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(10, 10, 10, 0.72);
 }
 
 /* Reflection - hidden by default, only shown on active item */

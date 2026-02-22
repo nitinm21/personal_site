@@ -11,18 +11,33 @@ interface Project {
   subtitle: string;
   url: string;
   repoUrl?: string;
+  repoLabel?: string;
   image: string;
   imageAlt: string;
+  coverflowImagePosition?: string;
+  coverflowReflectionPosition?: string;
 }
 
 export default function CodingExplorations() {
   const { viewMode } = useViewMode();
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
   const coverflowStageRef = useRef<HTMLDivElement>(null);
   const scrollbarRef = useRef<HTMLDivElement>(null);
   const isDraggingRef = useRef(false);
 
   const projects: Project[] = [
+    {
+      id: 'pm-archetype-finder',
+      title: 'Find your Product Manager persona!',
+      subtitle: 'Want to know what kind of a product manager you are? Find out with just 10 scenario-based questions',
+      url: 'https://pm-archetype-finder.vercel.app/',
+      repoUrl: 'https://github.com/nitinm21/pm_archetype_finder/',
+      repoLabel: 'GitHub Repo',
+      image: '/pm-archetype-finder-preview.png',
+      imageAlt: 'PM Archetype Finder persona result preview',
+      coverflowImagePosition: 'left center',
+      coverflowReflectionPosition: 'left center',
+    },
     {
       id: 'kalshi-wrapped',
       title: 'Kalshi Wrapped',
@@ -205,7 +220,7 @@ export default function CodingExplorations() {
                             rel="noopener noreferrer"
                             className={styles.repoLink}
                           >
-                            GitHub repo
+                            {project.repoLabel ?? 'GitHub repo'}
                           </a>
                           .
                         </>
@@ -293,7 +308,15 @@ export default function CodingExplorations() {
                           alt={project.imageAlt}
                           className={styles.coverImage}
                           draggable={false}
+                          style={
+                            project.coverflowImagePosition
+                              ? { objectPosition: project.coverflowImagePosition }
+                              : undefined
+                          }
                         />
+                        <span className={styles.coverActionHint} aria-hidden="true">
+                          Open project
+                        </span>
                       </div>
                       <div className={styles.coverReflection}>
                         <img
@@ -302,6 +325,11 @@ export default function CodingExplorations() {
                           className={styles.coverReflectionImage}
                           draggable={false}
                           aria-hidden="true"
+                          style={
+                            project.coverflowReflectionPosition
+                              ? { objectPosition: project.coverflowReflectionPosition }
+                              : undefined
+                          }
                         />
                       </div>
                     </motion.div>
@@ -330,13 +358,15 @@ export default function CodingExplorations() {
                       rel="noopener noreferrer"
                       className={styles.repoLink}
                     >
-                      GitHub repo
+                      {projects[activeIndex].repoLabel ?? 'GitHub repo'}
                     </a>
                     .
                   </>
                 ) : null}
               </p>
-              <span className={styles.coverflowHint}>Scroll or drag to navigate</span>
+              <span className={styles.coverflowHint}>
+                Scroll or drag to browse. Click the centered cover to open.
+              </span>
             </motion.div>
 
             {/* Custom Scrollbar */}
