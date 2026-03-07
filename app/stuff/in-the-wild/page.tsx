@@ -371,6 +371,9 @@ export default function InTheWild() {
                           className={styles.coverImage}
                           draggable={false}
                         />
+                        <span className={styles.coverActionHint} aria-hidden="true">
+                          Open post
+                        </span>
                       </div>
                       <div className={styles.coverReflection}>
                         <img
@@ -414,7 +417,6 @@ export default function InTheWild() {
               {items[activeIndex].subtitle && (
                 <p className={styles.coverflowSubtitle}>{items[activeIndex].subtitle}</p>
               )}
-              <span className={styles.coverflowHint}>Scroll or drag to navigate</span>
             </motion.div>
 
             <div
