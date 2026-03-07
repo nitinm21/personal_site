@@ -82,6 +82,10 @@ export default function CodingExplorations() {
     },
   ];
 
+  const getRepoSeparator = (subtitle: string) => (
+    /[.!?]$/.test(subtitle.trim()) ? ' ' : '. '
+  );
+
   // Handle wheel event to navigate between items
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
@@ -213,7 +217,7 @@ export default function CodingExplorations() {
                       {project.subtitle}
                       {project.repoUrl ? (
                         <>
-                          .{' '}
+                          {getRepoSeparator(project.subtitle)}
                           <a
                             href={project.repoUrl}
                             target="_blank"
@@ -351,7 +355,7 @@ export default function CodingExplorations() {
                 {projects[activeIndex].subtitle}
                 {projects[activeIndex].repoUrl ? (
                   <>
-                    .{' '}
+                    {getRepoSeparator(projects[activeIndex].subtitle)}
                     <a
                       href={projects[activeIndex].repoUrl}
                       target="_blank"
