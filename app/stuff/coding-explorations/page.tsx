@@ -364,9 +364,6 @@ export default function CodingExplorations() {
                   </>
                 ) : null}
               </p>
-              <span className={styles.coverflowHint}>
-                Scroll or drag to browse. Click the centered cover to open.
-              </span>
             </motion.div>
 
             {/* Custom Scrollbar */}
