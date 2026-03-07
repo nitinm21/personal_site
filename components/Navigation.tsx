@@ -14,9 +14,9 @@ const navItems = [
 ];
 
 const stuffSubItems = [
-  { href: '/stuff/blog', label: 'Blog' },
   { href: '/stuff/coding-explorations', label: 'Coding explorations' },
   { href: '/stuff/in-the-wild', label: 'In the wild' },
+  { href: '/stuff/blog', label: 'Blog' },
 ];
 
 export default function Navigation() {
