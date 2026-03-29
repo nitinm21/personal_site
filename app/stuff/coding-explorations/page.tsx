@@ -14,7 +14,10 @@ interface Project {
   repoLabel?: string;
   image: string;
   imageAlt: string;
+  imageFit?: 'cover' | 'contain';
+  imageBackground?: string;
   coverflowImagePosition?: string;
+  coverflowImageFit?: 'cover' | 'contain';
   coverflowReflectionPosition?: string;
 }
 
@@ -26,6 +29,19 @@ export default function CodingExplorations() {
   const isDraggingRef = useRef(false);
 
   const projects: Project[] = [
+    {
+      id: 'lyrics-translator',
+      title: 'Lyrics Translator',
+      subtitle: "Simple product that translates song lyrics to English. Built this to understand Bad Bunny songs (not because I'm tryna impress a Latina).",
+      url: 'https://github.com/nitinm21/lyrics_translator',
+      repoUrl: 'https://github.com/nitinm21/lyrics_translator',
+      repoLabel: 'GitHub repo',
+      image: '/lyrics-translator-preview.svg',
+      imageAlt: "Lyrics Translator preview showing Bad Bunny's Moscow Mule lyrics translated to English",
+      imageFit: 'contain',
+      imageBackground: '#171a1f',
+      coverflowImageFit: 'contain',
+    },
     {
       id: 'pm-archetype-finder',
       title: 'Find your Product Manager persona!',
@@ -268,11 +284,21 @@ export default function CodingExplorations() {
                     rel="noopener noreferrer"
                     className={styles.imageLink}
                     aria-label={`View ${project.title}`}
+                    style={
+                      project.imageBackground
+                        ? { background: project.imageBackground }
+                        : undefined
+                    }
                   >
                     <img
                       src={project.image}
                       alt={project.imageAlt}
                       className={styles.image}
+                      style={
+                        project.imageFit
+                          ? { objectFit: project.imageFit }
+                          : undefined
+                      }
                     />
                   </a>
                 </motion.div>
@@ -306,15 +332,29 @@ export default function CodingExplorations() {
                         ease: [0.4, 0, 0.2, 1],
                       }}
                     >
-                      <div className={styles.coverImageWrapper}>
+                      <div
+                        className={styles.coverImageWrapper}
+                        style={
+                          project.imageBackground
+                            ? { background: project.imageBackground }
+                            : undefined
+                        }
+                      >
                         <img
                           src={project.image}
                           alt={project.imageAlt}
                           className={styles.coverImage}
                           draggable={false}
                           style={
-                            project.coverflowImagePosition
-                              ? { objectPosition: project.coverflowImagePosition }
+                            project.coverflowImagePosition || project.coverflowImageFit
+                              ? {
+                                  ...(project.coverflowImagePosition
+                                    ? { objectPosition: project.coverflowImagePosition }
+                                    : {}),
+                                  ...(project.coverflowImageFit
+                                    ? { objectFit: project.coverflowImageFit }
+                                    : {}),
+                                }
                               : undefined
                           }
                         />
@@ -330,8 +370,15 @@ export default function CodingExplorations() {
                           draggable={false}
                           aria-hidden="true"
                           style={
-                            project.coverflowReflectionPosition
-                              ? { objectPosition: project.coverflowReflectionPosition }
+                            project.coverflowReflectionPosition || project.coverflowImageFit
+                              ? {
+                                  ...(project.coverflowReflectionPosition
+                                    ? { objectPosition: project.coverflowReflectionPosition }
+                                    : {}),
+                                  ...(project.coverflowImageFit
+                                    ? { objectFit: project.coverflowImageFit }
+                                    : {}),
+                                }
                               : undefined
                           }
                         />
