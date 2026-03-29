@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    id: 'building-lyrics-translator-with-codex',
+    title: 'Building Lyrics Translator With Codex CLI',
+    description: 'Coding agents are addictive at this point.',
+    publishedAt: '2026-03-29',
+    publishedLabel: 'Mar 29, 2026',
+    postUrl: 'https://nitinmurali.substack.com/p/building-lyrics-translator-with-codex',
+    openGraphImage: 'https://substackcdn.com/image/fetch/$s_!vN8v!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F62bbe8f2-83d9-407e-8b17-12dfce5c5f45_1338x1736.png',
+  },
+  {
     id: 'building-a-blog-page-for-my-site',
     title: 'Building a /blog page for my site',
     description: '..without writing a single line of code!',
