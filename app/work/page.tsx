@@ -22,11 +22,19 @@ interface EducationItem {
 
 const experience: ExperienceItem[] = [
   {
-    title: 'AI Product Manager',
-    company: 'Patent Response',
-    years: '2025 - Present',
+    title: 'AI Product Engineer',
+    company: 'GoodPower',
+    years: '2026 - Present',
     highlights: [
-      'Building products for IP Attorneys to help them file patents faster and more efficiently.',
+      'Building products and talking to customers. Playing the role of both a PM and Engineer (now I only have myself to blame when things fall apart :)).',
+    ],
+  },
+  {
+    title: 'Product Manager Intern (Summer)',
+    company: 'Aeropay',
+    years: '2024 - 2024',
+    highlights: [
+      'Built internal tools to resolve customer-reported issues in an automated way',
     ],
   },
   {

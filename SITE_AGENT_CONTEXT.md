@@ -23,12 +23,17 @@
 ## Route Content: `/work`
 
 ### Section: Experience
-1. Role: `AI Product Manager`
-- Company: `Patent Response`
-- Years: `2025 - Present`
-- Highlight: `Building products for IP Attorneys to help them file patents faster and more efficiently.`
+1. Role: `AI Product Engineer`
+- Company: `GoodPower`
+- Years: `2026 - Present`
+- Highlight: `Building products and talking to customers. Playing the role of both a PM and Engineer (now I only have myself to blame when things fall apart :)).`
 
-2. Role: `Product Manager`
+2. Role: `Product Manager Intern (Summer)`
+- Company: `Aeropay`
+- Years: `2024 - 2024`
+- Highlight: `Built internal tools to resolve customer-reported issues in an automated way`
+
+3. Role: `Product Manager`
 - Company: `SurveySparrow`
 - Company URL: `https://surveysparrow.com/`
 - Years: `2021 - 2023`
@@ -36,7 +41,7 @@
 - `Built an AI-powered survey generator leveraging LLMs to translate user goals into ready-to-send surveys, driving a 40% reduction in survey creation time and a 5% increase in free-to-paid conversion rate.`
 - `Revamped the monetization model with Consumption-Based Pricing, resulting in a 16% increase in Net Retention Rate and 18% growth in Expansion Revenue within 4 months of implementation.`
 
-3. Role: `Software Engineer`
+4. Role: `Software Engineer`
 - Company: `Institute of Product Leadership`
 - Company URL: `https://www.productleadership.com/`
 - Years: `2020 - 2021`
@@ -351,4 +356,3 @@
 - `https://www.linkedin.com/posts/activity-7244116588604391424-CLXp`
 - `https://www.linkedin.com/posts/activity-7295477709860655104-krFr`
 - `https://youtu.be/vRhAXLO_D0A`
-
