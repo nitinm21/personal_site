@@ -8,7 +8,35 @@ export interface BlogPost {
   openGraphImage: string;
 }
 
-export const BLOG_POSTS: BlogPost[] = [
+const SUBSTACK_FEED_URL = 'https://nitinmurali.substack.com/feed';
+const FEED_REVALIDATE_SECONDS = 3600;
+
+const ENTITY_MAP: Record<string, string> = {
+  amp: '&',
+  apos: "'",
+  gt: '>',
+  lt: '<',
+  nbsp: ' ',
+  quot: '"',
+};
+
+const BLOG_DATE_FORMATTER = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+export const FALLBACK_BLOG_POSTS: BlogPost[] = [
+  {
+    id: 'meetings-dont-end-when-they-end',
+    title: "Meetings don't end when they end",
+    description: 'Built an agent that generates grounded implementation plans from meetings.',
+    publishedAt: '2026-04-22T03:23:39.000Z',
+    publishedLabel: 'Apr 22, 2026',
+    postUrl: 'https://nitinmurali.substack.com/p/meetings-dont-end-when-they-end',
+    openGraphImage: 'https://substack-post-media.s3.amazonaws.com/public/images/705ba397-1913-4430-8bf8-ab695dc417a0_1200x630.png',
+  },
   {
     id: 'building-lyrics-translator-with-codex',
     title: 'Building Lyrics Translator With Codex CLI',
@@ -109,3 +137,129 @@ export const BLOG_POSTS: BlogPost[] = [
     openGraphImage: 'https://substackcdn.com/image/fetch/$s_!rFjD!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Feaeea9cd-614a-409b-b339-2b2f4c19357e_420x300.png',
   },
 ];
+
+function decodeEntities(value: string) {
+  return value.replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z]+);/g, (match, entity) => {
+    if (entity.startsWith('#x') || entity.startsWith('#X')) {
+      const codePoint = Number.parseInt(entity.slice(2), 16);
+      return Number.isNaN(codePoint) ? match : String.fromCodePoint(codePoint);
+    }
+
+    if (entity.startsWith('#')) {
+      const codePoint = Number.parseInt(entity.slice(1), 10);
+      return Number.isNaN(codePoint) ? match : String.fromCodePoint(codePoint);
+    }
+
+    return ENTITY_MAP[entity] ?? match;
+  });
+}
+
+function unwrapCdata(value: string) {
+  const trimmedValue = value.trim();
+
+  if (
+    trimmedValue.startsWith('<![CDATA[') &&
+    trimmedValue.endsWith(']]>')
+  ) {
+    return trimmedValue.slice(9, -3);
+  }
+
+  return trimmedValue;
+}
+
+function getTagValue(block: string, tagName: string) {
+  const match = block.match(new RegExp(`<${tagName}>([\\s\\S]*?)<\\/${tagName}>`));
+  return match?.[1] ?? '';
+}
+
+function getEnclosureUrl(block: string) {
+  const match = block.match(/<enclosure\b[^>]*\burl="([^"]+)"/);
+  return decodeEntities(match?.[1] ?? '');
+}
+
+function normalizeText(value: string) {
+  return decodeEntities(unwrapCdata(value)).replace(/\s+/g, ' ').trim();
+}
+
+function formatPublishedAt(pubDate: string) {
+  const date = new Date(pubDate);
+
+  if (Number.isNaN(date.getTime())) {
+    return null;
+  }
+
+  return {
+    publishedAt: date.toISOString(),
+    publishedLabel: BLOG_DATE_FORMATTER.format(date),
+    sortTime: date.getTime(),
+  };
+}
+
+function getPostId(postUrl: string) {
+  try {
+    const pathnameSegments = new URL(postUrl).pathname
+      .split('/')
+      .filter(Boolean);
+    return pathnameSegments[pathnameSegments.length - 1] ?? postUrl;
+  } catch {
+    return postUrl;
+  }
+}
+
+function parseFeed(xml: string) {
+  const itemMatches = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)];
+
+  return itemMatches
+    .map(([, block]) => {
+      const title = normalizeText(getTagValue(block, 'title'));
+      const description = normalizeText(getTagValue(block, 'description'));
+      const postUrl = normalizeText(getTagValue(block, 'link'));
+      const pubDate = normalizeText(getTagValue(block, 'pubDate'));
+      const published = formatPublishedAt(pubDate);
+
+      if (!title || !description || !postUrl || !published) {
+        return null;
+      }
+
+      return {
+        id: getPostId(postUrl),
+        title,
+        description,
+        publishedAt: published.publishedAt,
+        publishedLabel: published.publishedLabel,
+        postUrl,
+        openGraphImage: getEnclosureUrl(block),
+        sortTime: published.sortTime,
+      };
+    })
+    .filter((post): post is BlogPost & { sortTime: number } => post !== null)
+    .sort((left, right) => right.sortTime - left.sortTime)
+    .map(({ sortTime, ...post }) => post);
+}
+
+export async function getBlogPosts() {
+  try {
+    const response = await fetch(SUBSTACK_FEED_URL, {
+      next: { revalidate: FEED_REVALIDATE_SECONDS },
+      headers: {
+        Accept: 'application/rss+xml, application/xml, text/xml;q=0.9,*/*;q=0.8',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Substack feed request failed with ${response.status}`);
+    }
+
+    const xml = await response.text();
+    const posts = parseFeed(xml);
+
+    if (posts.length === 0) {
+      throw new Error('Substack feed returned no parseable posts');
+    }
+
+    return posts;
+  } catch (error) {
+    console.error('Falling back to bundled blog posts.', error);
+    return FALLBACK_BLOG_POSTS;
+  }
+}
