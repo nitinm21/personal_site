@@ -48,6 +48,16 @@ export default function InTheWild() {
       category: 'speaking',
     },
     {
+      id: 'geet-kumar',
+      title: 'ML and Software Engineering at Amazon',
+      subtitle: 'Geet Kumar, Senior Software Engineer, Amazon',
+      videoUrl: 'https://youtu.be/m_DfDVKAfbc?si=VGSbd2EuaFTvci3W',
+      linkedInUrl: 'https://youtu.be/m_DfDVKAfbc?si=VGSbd2EuaFTvci3W',
+      image: '/geet-kumar-event.png',
+      imageAlt: 'ML and Software Engineering at Amazon with Geet Kumar, Senior Software Engineer, Amazon',
+      category: 'fireside',
+    },
+    {
       id: 'david-giard',
       title: 'AI Masterclass with David Giard',
       subtitle: 'Partner Solution Architect, Microsoft',
