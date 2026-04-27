@@ -11,6 +11,7 @@ interface Project {
   subtitle: string;
   url: string;
   repoUrl?: string;
+  repoLeadIn?: string;
   repoLabel?: string;
   image: string;
   imageAlt: string;
@@ -29,6 +30,20 @@ export default function CodingExplorations() {
   const isDraggingRef = useRef(false);
 
   const projects: Project[] = [
+    {
+      id: 'domino',
+      title: 'What if coding agents could join your meetings!',
+      subtitle: 'Domino records meetings inside your coding agent, transcribes it, and writes a grounded implementation plan you can execute.',
+      url: 'https://domino-meet.vercel.app/',
+      repoUrl: 'https://domino-meet.vercel.app/',
+      repoLeadIn: 'Check it out ',
+      repoLabel: 'here',
+      image: '/domino-preview.svg',
+      imageAlt: 'Domino preview showing the line From meeting, to merge',
+      imageFit: 'contain',
+      imageBackground: '#fafaf8',
+      coverflowImageFit: 'contain',
+    },
     {
       id: 'lyrics-translator',
       title: 'Lyrics Translator',
@@ -234,6 +249,7 @@ export default function CodingExplorations() {
                       {project.repoUrl ? (
                         <>
                           {getRepoSeparator(project.subtitle)}
+                          {project.repoLeadIn}
                           <a
                             href={project.repoUrl}
                             target="_blank"
@@ -403,6 +419,7 @@ export default function CodingExplorations() {
                 {projects[activeIndex].repoUrl ? (
                   <>
                     {getRepoSeparator(projects[activeIndex].subtitle)}
+                    {projects[activeIndex].repoLeadIn}
                     <a
                       href={projects[activeIndex].repoUrl}
                       target="_blank"

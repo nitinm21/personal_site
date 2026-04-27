@@ -1,0 +1,37 @@
+<svg width="1332" height="564" viewBox="0 0 1332 564" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1332" height="564" fill="#FAFAF8"/>
+  <g opacity="0.58" stroke="#E8E7E2" stroke-width="1">
+    <path d="M174.5 0V564"/>
+    <path d="M298.5 0V564"/>
+    <path d="M422.5 0V564"/>
+    <path d="M546.5 0V564"/>
+    <path d="M668.5 0V564"/>
+    <path d="M792.5 0V564"/>
+    <path d="M916.5 0V564"/>
+    <path d="M1040.5 0V564"/>
+    <path d="M0 74.5H1332"/>
+    <path d="M0 198.5H1332"/>
+    <path d="M0 322.5H1332"/>
+  </g>
+
+  <text x="51" y="165" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="138" font-weight="700" letter-spacing="0">From</text>
+  <text x="590" y="165" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="138" font-weight="700" letter-spacing="0">meeting,</text>
+  <text x="51" y="320" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="138" font-weight="700" letter-spacing="0">to</text>
+  <text x="389" y="320" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="138" font-weight="700" letter-spacing="0">merge.</text>
+
+  <rect x="418" y="59.5" width="128" height="128" rx="29.5" fill="#EEF2FF" fill-opacity="0.85" stroke="#AFC2FF" stroke-width="2.5"/>
+  <path d="M449 109C449 105.686 451.686 103 455 103H490C493.314 103 496 105.686 496 109V138C496 141.314 493.314 144 490 144H455C451.686 144 449 141.314 449 138V109Z" fill="#2C5BFF"/>
+  <path d="M497 118.56L513.123 109.546C515.123 108.428 517.59 109.873 517.59 112.164V134.836C517.59 137.127 515.123 138.572 513.123 137.454L497 128.44V118.56Z" fill="#2C5BFF"/>
+
+  <rect x="217" y="212.5" width="128" height="128" rx="29.5" fill="#EFF8EF" fill-opacity="0.95" stroke="#B9E1C1" stroke-width="2.5"/>
+  <g stroke="#2FA357" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M258 247V306"/>
+    <path d="M258 276C305 276 305 306 305 306"/>
+    <circle cx="258" cy="246" r="9" fill="#EFF8EF"/>
+    <circle cx="258" cy="307" r="9" fill="#EFF8EF"/>
+    <circle cx="306" cy="307" r="9" fill="#EFF8EF"/>
+  </g>
+
+  <text x="51" y="436" fill="#6A6A67" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="40" font-weight="400" letter-spacing="0">Domino records meetings inside your coding agent, transcribes it,</text>
+  <text x="51" y="500" fill="#6A6A67" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="40" font-weight="400" letter-spacing="0">and writes a grounded implementation plan you can execute.</text>
+</svg>
