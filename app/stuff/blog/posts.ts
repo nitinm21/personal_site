@@ -5,7 +5,6 @@ export interface BlogPost {
   publishedAt: string;
   publishedLabel: string;
   postUrl: string;
-  openGraphImage: string;
 }
 
 const SUBSTACK_FEED_URL = 'https://nitinmurali.substack.com/feed';
@@ -35,7 +34,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2026-04-22T03:23:39.000Z',
     publishedLabel: 'Apr 22, 2026',
     postUrl: 'https://nitinmurali.substack.com/p/meetings-dont-end-when-they-end',
-    openGraphImage: 'https://substack-post-media.s3.amazonaws.com/public/images/705ba397-1913-4430-8bf8-ab695dc417a0_1200x630.png',
   },
   {
     id: 'building-lyrics-translator-with-codex',
@@ -44,7 +42,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2026-03-29',
     publishedLabel: 'Mar 29, 2026',
     postUrl: 'https://nitinmurali.substack.com/p/building-lyrics-translator-with-codex',
-    openGraphImage: 'https://substackcdn.com/image/fetch/$s_!vN8v!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F62bbe8f2-83d9-407e-8b17-12dfce5c5f45_1338x1736.png',
   },
   {
     id: 'building-a-blog-page-for-my-site',
@@ -53,7 +50,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2026-02-17',
     publishedLabel: 'Feb 17, 2026',
     postUrl: 'https://nitinmurali.substack.com/p/building-a-blog-page-for-my-site',
-    openGraphImage: 'https://substackcdn.com/image/fetch/$s_!8_Ss!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb5468246-f85a-4d26-b437-59119084a613_2492x1006.png',
   },
   {
     id: 'what-if-anyone-at-your-company-could',
@@ -62,7 +58,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2025-06-06',
     publishedLabel: 'Jun 6, 2025',
     postUrl: 'https://nitinmurali.substack.com/p/what-if-anyone-at-your-company-could',
-    openGraphImage: 'https://substack-post-media.s3.amazonaws.com/public/images/de9f7ffd-8f1f-4ee1-a0c1-cc8e335d28d3_1264x728.png',
   },
   {
     id: 'winning-companies-stay-closest-to-customers',
@@ -71,7 +66,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2024-05-09',
     publishedLabel: 'May 9, 2024',
     postUrl: 'https://nitinmurali.substack.com/p/winning-companies-stay-closest-to-customers',
-    openGraphImage: 'https://substack-post-media.s3.amazonaws.com/public/images/c49604bd-510e-4a44-a985-04a755d68c97_1024x1024.webp',
   },
   {
     id: 'why-churn-is-not-always-bad-in-dating',
@@ -80,7 +74,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2024-02-11',
     publishedLabel: 'Feb 11, 2024',
     postUrl: 'https://nitinmurali.substack.com/p/why-churn-is-not-always-bad-in-dating',
-    openGraphImage: 'https://substack-post-media.s3.amazonaws.com/public/images/28a9587a-5a8f-4ed4-8391-4e25059fb07a_3840x2160.png',
   },
   {
     id: 'what-b2b-physical-products-taught',
@@ -89,7 +82,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2023-06-20',
     publishedLabel: 'Jun 20, 2023',
     postUrl: 'https://nitinmurali.substack.com/p/what-b2b-physical-products-taught',
-    openGraphImage: 'https://substackcdn.com/image/fetch/$s_!hBtG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc2fe8be5-7fbe-469e-b108-7408a70eb528_4624x2080.jpeg',
   },
   {
     id: 'what-linear-and-figma-taught-me-about',
@@ -98,7 +90,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2022-12-04',
     publishedLabel: 'Dec 4, 2022',
     postUrl: 'https://nitinmurali.substack.com/p/what-linear-and-figma-taught-me-about',
-    openGraphImage: 'https://substackcdn.com/image/fetch/$s_!rCRC!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F52ebc565-70f7-4a22-a606-cc8ae2b9f784_1024x1024.png',
   },
   {
     id: 'jobs-theory-and-staying-close-to',
@@ -107,7 +98,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2022-10-23',
     publishedLabel: 'Oct 23, 2022',
     postUrl: 'https://nitinmurali.substack.com/p/jobs-theory-and-staying-close-to',
-    openGraphImage: 'https://substackcdn.com/image/fetch/$s_!CaZv!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2992a376-aab3-420a-acb9-4c0c6549a511_512x512.jpeg',
   },
   {
     id: 'changelog-2021-2022',
@@ -116,7 +106,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2022-04-24',
     publishedLabel: 'Apr 24, 2022',
     postUrl: 'https://nitinmurali.substack.com/p/changelog-2021-2022',
-    openGraphImage: 'https://substackcdn.com/image/fetch/$s_!aZ2v!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5ff423a5-0f05-460c-8cb4-9e5d7b1cba40_768x768.png',
   },
   {
     id: 'continuous-improvisation',
@@ -125,7 +114,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2022-01-02',
     publishedLabel: 'Jan 2, 2022',
     postUrl: 'https://nitinmurali.substack.com/p/continuous-improvisation',
-    openGraphImage: 'https://substackcdn.com/image/fetch/$s_!LjX1!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe10274e2-9dbf-43fd-b6f2-8b6a58384db2_420x300.png',
   },
   {
     id: 'product-improvements-spotify-tv',
@@ -134,7 +122,6 @@ export const FALLBACK_BLOG_POSTS: BlogPost[] = [
     publishedAt: '2021-10-17',
     publishedLabel: 'Oct 17, 2021',
     postUrl: 'https://nitinmurali.substack.com/p/product-improvements-spotify-tv',
-    openGraphImage: 'https://substackcdn.com/image/fetch/$s_!rFjD!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Feaeea9cd-614a-409b-b339-2b2f4c19357e_420x300.png',
   },
 ];
 
@@ -170,11 +157,6 @@ function unwrapCdata(value: string) {
 function getTagValue(block: string, tagName: string) {
   const match = block.match(new RegExp(`<${tagName}>([\\s\\S]*?)<\\/${tagName}>`));
   return match?.[1] ?? '';
-}
-
-function getEnclosureUrl(block: string) {
-  const match = block.match(/<enclosure\b[^>]*\burl="([^"]+)"/);
-  return decodeEntities(match?.[1] ?? '');
 }
 
 function normalizeText(value: string) {
@@ -228,7 +210,6 @@ function parseFeed(xml: string) {
         publishedAt: published.publishedAt,
         publishedLabel: published.publishedLabel,
         postUrl,
-        openGraphImage: getEnclosureUrl(block),
         sortTime: published.sortTime,
       };
     })

@@ -58,26 +58,13 @@ export default function BlogArchiveClient({
                 className={styles.card}
                 aria-label={`Open blog post: ${post.title}`}
               >
-                <div className={styles.copy}>
-                  <time className={styles.date} dateTime={post.publishedAt}>
-                    {post.publishedLabel}
-                  </time>
-                  <h2 className={styles.title}>
-                    <span className={styles.titleText}>{post.title}</span>
-                  </h2>
-                  <p className={styles.description}>{post.description}</p>
-                </div>
-
-                {post.openGraphImage ? (
-                  <div className={styles.media}>
-                    <img
-                      src={post.openGraphImage}
-                      alt={`Cover image for ${post.title}`}
-                      loading="lazy"
-                      className={styles.image}
-                    />
-                  </div>
-                ) : null}
+                <time className={styles.date} dateTime={post.publishedAt}>
+                  {post.publishedLabel}
+                </time>
+                <h2 className={styles.title}>
+                  <span className={styles.titleText}>{post.title}</span>
+                </h2>
+                <p className={styles.description}>{post.description}</p>
               </a>
             </article>
           </motion.li>
