@@ -28,7 +28,7 @@ export default function BlogArchiveClient({
       >
         <h1 className={styles.heading}>Writing archive</h1>
         <p className={styles.subheading}>
-          The latest posts from my Substack, focused on product thinking, strategy, and building.
+          The latest posts from my Substack
         </p>
       </motion.section>
 
