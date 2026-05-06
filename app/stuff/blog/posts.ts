@@ -10,6 +10,12 @@ export interface BlogPost {
 const SUBSTACK_FEED_URL = 'https://nitinmurali.substack.com/feed';
 const FEED_REVALIDATE_SECONDS = 3600;
 
+// Posts that have been removed on Substack but may still appear in the RSS feed
+// while it caches. Listing them here guarantees they stay hidden regardless of feed state.
+const HIDDEN_POST_IDS = new Set<string>([
+  'finally-became-a-product-manager',
+]);
+
 const ENTITY_MAP: Record<string, string> = {
   amp: '&',
   apos: "'",
@@ -203,8 +209,13 @@ function parseFeed(xml: string) {
         return null;
       }
 
+      const id = getPostId(postUrl);
+      if (HIDDEN_POST_IDS.has(id)) {
+        return null;
+      }
+
       return {
-        id: getPostId(postUrl),
+        id,
         title,
         description,
         publishedAt: published.publishedAt,
@@ -241,6 +252,6 @@ export async function getBlogPosts() {
     return posts;
   } catch (error) {
     console.error('Falling back to bundled blog posts.', error);
-    return FALLBACK_BLOG_POSTS;
+    return FALLBACK_BLOG_POSTS.filter((post) => !HIDDEN_POST_IDS.has(post.id));
   }
 }
