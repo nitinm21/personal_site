@@ -23,7 +23,7 @@
 ## Route Content: `/work`
 
 ### Section: Experience
-1. Role: `AI Product Engineer`
+1. Role: `AI Product Manager`
 - Company: `GoodPower`
 - Years: `2026 - Present`
 - Highlight: `Building products and talking to customers. Playing the role of both a PM and Engineer (now I only have myself to blame when things fall apart :)).`

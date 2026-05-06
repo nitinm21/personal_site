@@ -22,7 +22,7 @@ interface EducationItem {
 
 const experience: ExperienceItem[] = [
   {
-    title: 'AI Product Engineer',
+    title: 'AI Product Manager',
     company: 'GoodPower',
     years: '2026 - Present',
     highlights: [
