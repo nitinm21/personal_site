@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import SocialLinks from '@/components/SocialLinks';
 import { useSpotlightReveal } from '@/utils/useSpotlightReveal';
 import styles from './page.module.css';
@@ -38,24 +39,25 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          I&apos;m passionate about translating complex technology into user delight
-          and business value. I&apos;ve held roles as a Product Manager and Software
-          Engineer in the past.
+          AI Product Manager at GoodPower. Started my career as a Software Engineer. <nav></nav>Build projects with coding agents all day.
         </motion.p>
 
-        <motion.p
-          className={styles.tagline}
+        <motion.div
+          className={styles.ctaWrap}
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Best work happens when I&apos;m close to customers, building, and measuring impact.
-        </motion.p>
+          <Link href="/stuff/coding-explorations" className={styles.cta}>
+            <span>See my projects</span>
+            <span className={styles.ctaArrow} aria-hidden="true">→</span>
+          </Link>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
         >
           <SocialLinks />
         </motion.div>
