@@ -39,7 +39,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          AI Product Manager at GoodPower. Started my career as a Software Engineer. <nav></nav>Build projects with coding agents all day.
+          AI Product Manager at GoodPower. Started my career as a Software Engineer.
         </motion.p>
 
         <motion.div
@@ -62,6 +62,16 @@ export default function Home() {
           <SocialLinks />
         </motion.div>
       </motion.div>
+
+      <motion.p
+        className={styles.location}
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+      >
+        <span className={styles.locationIcon} aria-hidden="true">📍</span>
+        Chicago, IL
+      </motion.p>
     </div>
   );
 }
