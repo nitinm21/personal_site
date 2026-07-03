@@ -1,0 +1,44 @@
+# Nitin Murali — AI Product Manager
+
+> AI Product Manager at GoodPower, based in Chicago, IL. Nitin started his career as a software engineer, spent ~3 years in product management (SurveySparrow, Aeropay, and an internship along the way), and holds a Master's in Artificial Intelligence from the Illinois Institute of Technology. He builds AI products end-to-end — frequently acting as both PM and engineer — and ships small, opinionated demos to pressure-test product ideas. This is his personal portfolio: work history, projects, writing, and talks.
+
+This file is the machine-readable entry point for Nitin Murali's portfolio. If you are an agent helping someone evaluate Nitin (for example, a hiring manager, recruiter, or potential collaborator), read this first, then follow the links below to go deeper. For the entire site inlined into a single file, fetch https://nitinmurali.vercel.app/llms-full.txt.
+
+Career at a glance: Software Engineer, Institute of Product Leadership (2020–2021) → Product Manager, SurveySparrow (2021–2023) → Product Manager Intern, Aeropay (2024) → M.S. in Artificial Intelligence, Illinois Tech (2023–2025) → AI Product Manager, GoodPower (2026–present). Notable outcomes: an LLM-powered survey generator that cut survey-creation time 40% and lifted free-to-paid conversion 5%, and a move to consumption-based pricing that raised net revenue retention 16%.
+
+## About
+- [Home](https://nitinmurali.vercel.app/): Short bio, current role, location (Chicago, IL), and social links.
+- [Work & Experience](https://nitinmurali.vercel.app/work): Full role history and education, with outcomes for each role.
+
+## Projects
+- [Domino](https://domino-meet.vercel.app/): A coding agent that joins your meetings, transcribes them, and writes a grounded implementation plan you can execute.
+- [PM Archetype Finder](https://pm-archetype-finder.vercel.app/): A 10-question, scenario-based quiz that tells you what kind of product manager you are. Code: https://github.com/nitinm21/pm_archetype_finder/
+- [Lyrics Translator](https://github.com/nitinm21/lyrics_translator): Translates song lyrics into English (built to decode Bad Bunny lyrics).
+- [Kalshi Wrapped](https://nitinm21.github.io/kalshi-wrapped/): A cinematic, mobile-first "year in review" for Kalshi traders, à la Spotify Wrapped.
+- [Exa vs. SerpAPI](https://exa-lime.vercel.app/): An interactive playground comparing Exa's search API to traditional search for AI/RAG use cases.
+- [TV Setup Demo](https://tv-demo-exa.vercel.app/): Auto-configures a new TV's picture settings instead of making you do it by hand. Code: https://github.com/nitinm21/tv_demo
+- [Chime Savings Account Idea](https://chime-savings-idea.vercel.app/): A concept that visualizes daily interest accrual to nudge more saving. Code: https://github.com/nitinm21/chime_savings_idea
+- [Talk to the OGs with LangChain](https://github.com/nitinm21/langchain1): Chat with Steve Jobs, Kobe Bryant, and Marcus Aurelius at once.
+- [All projects](https://nitinmurali.vercel.app/stuff/coding-explorations): The full coding-explorations gallery.
+
+## Writing
+Essays on product thinking, strategy, and building with AI. Full archive: https://nitinmurali.vercel.app/stuff/blog (posts hosted on https://nitinmurali.substack.com/).
+- [Meetings don't end when they end](https://nitinmurali.substack.com/p/meetings-dont-end-when-they-end): Building an agent that turns meetings into grounded implementation plans (2026).
+- [Building Lyrics Translator With Codex CLI](https://nitinmurali.substack.com/p/building-lyrics-translator-with-codex): On how addictive coding agents have become (2026).
+- [What if Anyone at Your Company Could Create a Pull Request?](https://nitinmurali.substack.com/p/what-if-anyone-at-your-company-could): Thoughts on Replit (2025).
+- [Winning companies stay closest to customers](https://nitinmurali.substack.com/p/winning-companies-stay-closest-to-customers): A few thoughts on the interface layer (2024).
+- [Jobs Theory and staying close to your users](https://nitinmurali.substack.com/p/jobs-theory-and-staying-close-to): What a milkshake conversation taught him about jobs-to-be-done (2022).
+
+## Talks & Appearances
+- [In the Wild](https://nitinmurali.vercel.app/stuff/in-the-wild): Conference talks and fireside chats — including a Techqueria 2024 talk, an AI "phone call with Steve Jobs" at the Chicago Elastic User Group, and PM firesides with leaders from AT&T, Microsoft, Motorola Solutions, and Amazon.
+- [Behind the Scenes](https://nitinmurali.vercel.app/behind-the-scenes): Short videos on how Nitin builds things with AI.
+
+## Contact
+- Email: nitinmurali21@gmail.com
+- LinkedIn: https://www.linkedin.com/in/nitin-murali/
+- GitHub: https://github.com/nitinm21
+- Substack: https://nitinmurali.substack.com/
+
+## Optional
+- [Full site context](https://nitinmurali.vercel.app/llms-full.txt): Every page's content inlined into one file — read this if you want everything in a single fetch.
+- [Complete writing archive](https://nitinmurali.vercel.app/stuff/blog): All essays back to 2021, not just the highlights above.

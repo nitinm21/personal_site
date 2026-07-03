@@ -1,0 +1,121 @@
+# Nitin Murali — AI Product Manager
+
+> AI Product Manager at GoodPower, based in Chicago, IL. Engineer-turned-PM with ~3 years of product experience and a Master's in Artificial Intelligence from the Illinois Institute of Technology. This file is the complete, machine-readable content of Nitin's personal portfolio at https://nitinmurali.vercel.app — every page inlined into one document.
+
+For a shorter, curated index, see https://nitinmurali.vercel.app/llms.txt.
+
+## Site metadata
+- Title: Nitin Murali
+- Description: Product Manager & Software Engineer building products that translate complex technology into user delight and business value.
+- Base URL: https://nitinmurali.vercel.app
+- Language: English
+
+## Contact & social
+- Email: nitinmurali21@gmail.com
+- LinkedIn: https://www.linkedin.com/in/nitin-murali/
+- GitHub: https://github.com/nitinm21
+- Substack: https://nitinmurali.substack.com/
+
+## Home (/)
+- Name: Nitin Murali
+- Bio: AI Product Manager at GoodPower. Started my career as a Software Engineer.
+- Location: Chicago, IL
+- Primary call to action: "See my projects" → /stuff/coding-explorations
+
+## Work & experience (/work)
+
+### Experience
+1. AI Product Manager — GoodPower (2026 – Present)
+   - Building products and talking to customers. Playing the role of both a PM and Engineer (now I only have myself to blame when things fall apart).
+2. Product Manager Intern (Summer) — Aeropay (2024)
+   - Built internal tools to resolve customer-reported issues in an automated way.
+3. Product Manager — SurveySparrow (2021 – 2023) — https://surveysparrow.com/
+   - Built an AI-powered survey generator leveraging LLMs to translate user goals into ready-to-send surveys, driving a 40% reduction in survey-creation time and a 5% increase in free-to-paid conversion rate.
+   - Revamped the monetization model with consumption-based pricing, resulting in a 16% increase in Net Retention Rate and 18% growth in expansion revenue within 4 months of implementation.
+4. Software Engineer — Institute of Product Leadership (2020 – 2021) — https://www.productleadership.com/
+   - Reduced web application load times by 40% via asynchronous loading of non-critical resources, caching strategies, and image optimization.
+   - Designed and developed 40+ web pages with programmatic SEO using React and a custom CMS, resulting in a 45% increase in organic registrations.
+
+### Education
+- Master of Science in Artificial Intelligence — Illinois Institute of Technology (2023 – 2025)
+
+## Projects (/stuff/coding-explorations)
+1. Domino — "What if coding agents could join your meetings!"
+   - Domino records meetings inside your coding agent, transcribes them, and writes a grounded implementation plan you can execute.
+   - Live: https://domino-meet.vercel.app/
+2. Lyrics Translator
+   - A simple product that translates song lyrics to English. Built to understand Bad Bunny songs.
+   - Repo: https://github.com/nitinm21/lyrics_translator
+3. Find your Product Manager persona! (PM Archetype Finder)
+   - Discover what kind of product manager you are with just 10 scenario-based questions.
+   - Live: https://pm-archetype-finder.vercel.app/
+   - Repo: https://github.com/nitinm21/pm_archetype_finder/
+4. Kalshi Wrapped
+   - A cinematic, mobile-first year-in-review experience for Kalshi traders, inspired by Spotify Wrapped.
+   - Live: https://nitinm21.github.io/kalshi-wrapped/
+5. Exa v/s SerpAPI
+   - An interactive playground to compare Exa's APIs and traditional search APIs for AI/RAG use cases.
+   - Live: https://exa-lime.vercel.app/
+6. TV Setup Demo
+   - Every time you buy a TV, you set up picture preferences manually. What if it wasn't manual?
+   - Live: https://tv-demo-exa.vercel.app/
+   - Repo: https://github.com/nitinm21/tv_demo
+7. Chime Savings Account Idea
+   - Chime's savings account accrues interest daily, yet it isn't highlighted to encourage more deposits. What if they leveraged it to boost engagement?
+   - Live: https://chime-savings-idea.vercel.app/
+   - Repo: https://github.com/nitinm21/chime_savings_idea
+8. Talk to the OGs with LangChain
+   - Talk to Steve Jobs, Kobe Bryant, and Marcus Aurelius — at once.
+   - Repo: https://github.com/nitinm21/langchain1
+
+## Writing (/stuff/blog)
+Essays on product thinking, strategy, and building. Hosted on Substack: https://nitinmurali.substack.com/
+1. Meetings don't end when they end (2026-04-22) — Built an agent that generates grounded implementation plans from meetings. — https://nitinmurali.substack.com/p/meetings-dont-end-when-they-end
+2. Building Lyrics Translator With Codex CLI (2026-03-29) — Coding agents are addictive at this point. — https://nitinmurali.substack.com/p/building-lyrics-translator-with-codex
+3. Building a /blog page for my site (2026-02-17) — ..without writing a single line of code! — https://nitinmurali.substack.com/p/building-a-blog-page-for-my-site
+4. What if Anyone at Your Company Could Create a Pull Request? (2025-06-06) — Thoughts on Replit. — https://nitinmurali.substack.com/p/what-if-anyone-at-your-company-could
+5. Winning companies stay closest to customers (2024-05-09) — Not a piece on user research, just a few thoughts on the interface layer! — https://nitinmurali.substack.com/p/winning-companies-stay-closest-to-customers
+6. Why churn is not always bad in dating apps? (2024-02-11) — What I learned after overhearing a couple on the subway. — https://nitinmurali.substack.com/p/why-churn-is-not-always-bad-in-dating
+7. What B2B physical products taught me about B2B SaaS products (2023-06-20) — Great insights usually come from the most disconnected of industries. — https://nitinmurali.substack.com/p/what-b2b-physical-products-taught
+8. What Linear and Figma taught me about product differentiation. (2022-12-04) — With a few learnings on competing in a red ocean market. — https://nitinmurali.substack.com/p/what-linear-and-figma-taught-me-about
+9. Jobs Theory and staying close to your users (2022-10-23) — How a simple conversation about milkshakes rewired my brain. — https://nitinmurali.substack.com/p/jobs-theory-and-staying-close-to
+10. Changelog: 2021-2022 (2022-04-24) — A list of misses in the year gone by. — https://nitinmurali.substack.com/p/changelog-2021-2022
+11. Continuous Improvisation (2022-01-02) — Why should you become a feedback magnet? — https://nitinmurali.substack.com/p/continuous-improvisation
+12. Product Improvements: Spotify TV (2021-10-17) — Spotify is one of the most well-designed products in recent times. — https://nitinmurali.substack.com/p/product-improvements-spotify-tv
+
+## Talks & appearances / In the Wild (/stuff/in-the-wild)
+Speaking engagements and fireside chats Nitin has presented or hosted.
+1. HawkBot Presentation — Techqueria 2024 (speaking)
+   - Demoed and presented the story of building the HawkBot for Illinois Institute of Technology.
+   - Video: https://youtu.be/UWDaI6g_cp8
+   - LinkedIn: https://www.linkedin.com/posts/activity-7251626565594173444-kSYt
+2. Phone call with Steve Jobs at the Elastic User Group (speaking)
+   - Demoed an AI-powered phone call with Steve Jobs using Elasticsearch at the Chicago Elastic User Group.
+   - Video: https://youtu.be/wmOfrbRLl-k
+   - LinkedIn: https://www.linkedin.com/posts/activity-7308580318423261186-cgaR
+3. ML and Software Engineering at Amazon (fireside) — with Geet Kumar, Senior Software Engineer, Amazon
+   - Video: https://youtu.be/m_DfDVKAfbc
+4. AI Masterclass with David Giard (fireside) — Partner Solution Architect, Microsoft
+   - LinkedIn: https://www.linkedin.com/posts/activity-7182502375469801472-4cW7
+5. Future of AI and CS with Dr. Lance Fortnow (fireside) — Dean, Illinois Institute of Technology
+   - Video: https://youtu.be/g5mt8R6-v4E
+   - LinkedIn: https://www.linkedin.com/posts/activity-7242289458736218112-bAZ5
+6. WTF is Product Management with Avinash Ravi (fireside) — Lead Product Manager, AT&T
+   - Video: https://youtu.be/3GvX8vYWGrM
+   - LinkedIn: https://www.linkedin.com/posts/activity-7244116588604391424-CLXp
+7. Fundamentals of Product Management with the Grabackis (fireside) — Tim & Silvia, Ex-Directors, Motorola Solutions
+   - Video: https://youtu.be/QEdhMC7K-Ak
+   - LinkedIn: https://www.linkedin.com/posts/activity-7295477709860655104-krFr
+
+## Behind the Scenes (/behind-the-scenes)
+Short videos on how Nitin builds stuff with AI.
+1. Building a /blog page for my site — A behind-the-scenes walkthrough of how he designed and shipped the blog page. — https://youtu.be/vRhAXLO_D0A
+
+## Site map
+- / — Home
+- /work — Work & experience
+- /stuff — Hub linking to the sections below
+- /stuff/coding-explorations — Projects
+- /stuff/blog — Writing archive
+- /stuff/in-the-wild — Talks & appearances
+- /behind-the-scenes — Build videos

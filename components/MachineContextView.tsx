@@ -25,7 +25,7 @@ export default function MachineContextView() {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/SITE_AGENT_CONTEXT.md', {
+      const response = await fetch('/llms-full.txt', {
         signal: controller.signal,
         cache: 'no-store',
       });
@@ -79,7 +79,7 @@ export default function MachineContextView() {
       )}
       <div className={styles.panel}>
         {status === 'loading' && (
-          <p className={styles.status}>Loading `SITE_AGENT_CONTEXT.md`...</p>
+          <p className={styles.status}>Loading `llms-full.txt`...</p>
         )}
 
         {status === 'error' && (
