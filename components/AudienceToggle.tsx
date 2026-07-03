@@ -1,16 +1,14 @@
 'use client';
 
-import {
-  HUMAN_AUDIENCE_MODE,
-  MACHINE_AUDIENCE_MODE,
-} from '@/utils/audienceMode.mjs';
+import { HUMAN_AUDIENCE_MODE } from '@/utils/audienceMode.mjs';
 import { useAudienceMode } from '@/contexts/AudienceModeContext';
 import styles from './AudienceToggle.module.css';
+
+const AGENT_CONTEXT_URL = 'https://nitinmurali.vercel.app/llms-full.txt';
 
 export default function AudienceToggle() {
   const { audienceMode, setAudienceMode } = useAudienceMode();
   const isHumanSelected = audienceMode === HUMAN_AUDIENCE_MODE;
-  const isMachineSelected = audienceMode === MACHINE_AUDIENCE_MODE;
 
   return (
     <div className={styles.root}>
@@ -28,18 +26,15 @@ export default function AudienceToggle() {
           <span className={styles.radio} aria-hidden="true" />
           <span className={styles.label}>Human</span>
         </label>
-        <label className={styles.option}>
-          <input
-            type="radio"
-            name="audience-mode"
-            value={MACHINE_AUDIENCE_MODE}
-            checked={isMachineSelected}
-            onChange={() => setAudienceMode(MACHINE_AUDIENCE_MODE)}
-            className={styles.radioInput}
-          />
+        <a
+          href={AGENT_CONTEXT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.option}
+        >
           <span className={styles.radio} aria-hidden="true" />
           <span className={styles.label}>Agent</span>
-        </label>
+        </a>
       </fieldset>
     </div>
   );
