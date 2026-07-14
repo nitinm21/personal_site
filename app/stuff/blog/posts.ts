@@ -34,6 +34,14 @@ const BLOG_DATE_FORMATTER = new Intl.DateTimeFormat('en-US', {
 
 export const FALLBACK_BLOG_POSTS: BlogPost[] = [
   {
+    id: 'you-dont-need-god-tier-models-to',
+    title: "You don't need God-tier models to write your email",
+    description: 'Post-training a model on my sent folder',
+    publishedAt: '2026-07-14T22:27:10.000Z',
+    publishedLabel: 'Jul 14, 2026',
+    postUrl: 'https://nitinmurali.substack.com/p/you-dont-need-god-tier-models-to',
+  },
+  {
     id: 'meetings-dont-end-when-they-end',
     title: "Meetings don't end when they end",
     description: 'Built an agent that generates grounded implementation plans from meetings.',

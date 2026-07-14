@@ -31,6 +31,19 @@ export default function CodingExplorations() {
 
   const projects: Project[] = [
     {
+      id: 'inbox-voice',
+      title: "You don't need God-tier models to write your email",
+      subtitle: 'I post-trained an open model on my own emails so it drafts emails like me.',
+      url: 'https://email-post-train.vercel.app',
+      repoUrl: 'https://app.primeintellect.ai/dashboard/environments/nitinm21/inbox-voice',
+      repoLeadIn: 'Fork the eval environment on ',
+      repoLabel: 'Prime Intellect',
+      image: '/inbox-voice-preview.png',
+      imageAlt: "Inbox Voice preview: the headline You don't need God-tier models to write your email",
+      imageBackground: '#000000',
+      coverflowImageFit: 'contain',
+    },
+    {
       id: 'domino',
       title: 'What if coding agents could join your meetings!',
       subtitle: 'Domino records meetings inside your coding agent, transcribes it, and writes a grounded implementation plan you can execute.',
