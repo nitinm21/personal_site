@@ -1,0 +1,18 @@
+/*
+ * Screen-reader- and crawler-readable page summary. The visual design of the
+ * homepage is deliberately sparse, so the prose that gives an agent (or a
+ * screen-reader user) the context a sighted visitor gets from the rest of the
+ * site lives here instead of in the layout. Prose only, no interactive
+ * elements, so it never creates a phantom tab stop.
+ */
+.summary {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

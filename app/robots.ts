@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
-
-const BASE_URL = 'https://nitinmurali.vercel.app';
+import { SITE_URL } from '@/utils/site.mjs';
 
 // Allow every crawler (including AI bots like GPTBot, ClaudeBot, PerplexityBot)
 // and point them to the sitemap so an agent handed only the domain can find
@@ -11,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: `${BASE_URL}/sitemap.xml`,
-    host: BASE_URL,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

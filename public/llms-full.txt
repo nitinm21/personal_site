@@ -1,6 +1,6 @@
-# Nitin Murali — AI Product Manager
+# Nitin Murali — AI Product Engineer
 
-> AI Product Manager at GoodPower, based in Chicago, IL. Engineer-turned-PM with ~3 years of product experience and a Master's in Artificial Intelligence from the Illinois Institute of Technology. This file is the complete, machine-readable content of Nitin's personal portfolio at https://nitinmurali.vercel.app — every page inlined into one document.
+> AI Product Engineer at GoodPower, based in Chicago, IL. Engineer-turned-PM with ~3 years of product experience and a Master's in Artificial Intelligence from the Illinois Institute of Technology. This file is the complete, machine-readable content of Nitin's personal portfolio at https://nitinmurali.vercel.app — every page inlined into one document.
 
 For a shorter, curated index, see https://nitinmurali.vercel.app/llms.txt.
 
@@ -18,14 +18,14 @@ For a shorter, curated index, see https://nitinmurali.vercel.app/llms.txt.
 
 ## Home (/)
 - Name: Nitin Murali
-- Bio: AI Product Manager at GoodPower. Started my career as a Software Engineer.
+- Bio: AI Product Engineer at GoodPower. Started my career as a Software Engineer.
 - Location: Chicago, IL
 - Primary call to action: "See my projects" → /stuff/coding-explorations
 
 ## Work & experience (/work)
 
 ### Experience
-1. AI Product Manager — GoodPower (2026 – Present)
+1. AI Product Engineer — GoodPower (2026 – Present)
    - Building products and talking to customers. Playing the role of both a PM and Engineer (now I only have myself to blame when things fall apart).
 2. Product Manager Intern (Summer) — Aeropay (2024)
    - Built internal tools to resolve customer-reported issues in an automated way.
@@ -114,8 +114,21 @@ Short videos on how Nitin builds stuff with AI.
 ## Site map
 - / — Home
 - /work — Work & experience
-- /stuff — Hub linking to the sections below
+- /stuff — Hub redirecting to /stuff/coding-explorations
 - /stuff/coding-explorations — Projects
 - /stuff/blog — Writing archive
 - /stuff/in-the-wild — Talks & appearances
 - /behind-the-scenes — Build videos
+- /agents — Agent & developer resources
+
+## Machine-readable endpoints
+Every surface on this site that a program can read. No authentication, no API keys.
+- /llms.txt — Curated index with links to go deeper.
+- /llms-full.txt — This file: every page inlined into one document.
+- /sitemap.xml — Every canonical HTML URL.
+- /robots.txt — Crawl policy (all crawlers allowed) and the sitemap pointer.
+- /api/profile — JSON: person, experience, education, projects, appearances, videos, page index, resource index.
+- /openapi.json — OpenAPI 3.1 description of the profile API, the Markdown endpoints, and these files.
+- /agents — Human-readable documentation for all of the above.
+- Markdown for any page — send `Accept: text/markdown`, or append `.md` to the path: /index.md, /work.md, /stuff/coding-explorations.md, /stuff/in-the-wild.md, /stuff/blog.md, /behind-the-scenes.md, /agents.md. Responses set `Vary: Accept, Accept-Encoding`, honour q-values, and return 406 when neither text/html nor text/markdown is acceptable (acceptmarkdown.com convention).
+- Nonexistent paths return a real HTTP 404 whose body points back at this file, /llms.txt, and /sitemap.xml.

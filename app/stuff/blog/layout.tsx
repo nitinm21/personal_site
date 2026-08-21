@@ -1,14 +1,8 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/utils/pageMetadata';
 
-export const metadata: Metadata = {
-  title: 'Blog | Nitin Murali',
-  description: 'Latest writing synced from product stash on Substack.',
-};
+export const metadata: Metadata = pageMetadata('/stuff/blog');
 
-export default function BlogLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return children;
 }

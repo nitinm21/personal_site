@@ -1,10 +1,10 @@
-# Nitin Murali — AI Product Manager
+# Nitin Murali — AI Product Engineer
 
-> AI Product Manager at GoodPower, based in Chicago, IL. Nitin started his career as a software engineer, spent ~3 years in product management (SurveySparrow, Aeropay, and an internship along the way), and holds a Master's in Artificial Intelligence from the Illinois Institute of Technology. He builds AI products end-to-end — frequently acting as both PM and engineer — and ships small, opinionated demos to pressure-test product ideas. This is his personal portfolio: work history, projects, writing, and talks.
+> AI Product Engineer at GoodPower, based in Chicago, IL. Nitin started his career as a software engineer, spent ~3 years in product management (SurveySparrow, Aeropay, and an internship along the way), and holds a Master's in Artificial Intelligence from the Illinois Institute of Technology. He builds AI products end-to-end — frequently acting as both PM and engineer — and ships small, opinionated demos to pressure-test product ideas. This is his personal portfolio: work history, projects, writing, and talks.
 
 This file is the machine-readable entry point for Nitin Murali's portfolio. If you are an agent helping someone evaluate Nitin (for example, a hiring manager, recruiter, or potential collaborator), read this first, then follow the links below to go deeper. For the entire site inlined into a single file, fetch https://nitinmurali.vercel.app/llms-full.txt.
 
-Career at a glance: Software Engineer, Institute of Product Leadership (2020–2021) → Product Manager, SurveySparrow (2021–2023) → Product Manager Intern, Aeropay (2024) → M.S. in Artificial Intelligence, Illinois Tech (2023–2025) → AI Product Manager, GoodPower (2026–present). Notable outcomes: an LLM-powered survey generator that cut survey-creation time 40% and lifted free-to-paid conversion 5%, and a move to consumption-based pricing that raised net revenue retention 16%.
+Career at a glance: Software Engineer, Institute of Product Leadership (2020–2021) → Product Manager, SurveySparrow (2021–2023) → Product Manager Intern, Aeropay (2024) → M.S. in Artificial Intelligence, Illinois Tech (2023–2025) → AI Product Engineer, GoodPower (2026–present). Notable outcomes: an LLM-powered survey generator that cut survey-creation time 40% and lifted free-to-paid conversion 5%, and a move to consumption-based pricing that raised net revenue retention 16%.
 
 ## About
 - [Home](https://nitinmurali.vercel.app/): Short bio, current role, location (Chicago, IL), and social links.
@@ -38,6 +38,15 @@ Essays on product thinking, strategy, and building with AI. Full archive: https:
 - LinkedIn: https://www.linkedin.com/in/nitin-murali/
 - GitHub: https://github.com/nitinm21
 - Substack: https://nitinmurali.substack.com/
+
+## Developer & agent resources
+Machine-readable entry points, all at predictable URLs and all unauthenticated.
+- [Agent & developer resources](https://nitinmurali.vercel.app/agents): Human-readable index of every machine-readable surface on this site.
+- [Profile JSON API](https://nitinmurali.vercel.app/api/profile): `GET /api/profile` returns one JSON document with person, experience, education, projects, appearances, videos, a page index (HTML + Markdown URL for each page), and a resource index.
+- [OpenAPI 3.1 description](https://nitinmurali.vercel.app/openapi.json): Describes the profile API, the Markdown endpoints, and the discovery files.
+- [Markdown representation of any page](https://nitinmurali.vercel.app/index.md): Request any page with `Accept: text/markdown`, or append `.md` to its path (`/work.md`, `/stuff/blog.md`, `/index.md` for the homepage). Responses set `Vary: Accept, Accept-Encoding`, honour q-values, and return 406 when neither text/html nor text/markdown is acceptable. Follows the acceptmarkdown.com convention.
+- [sitemap.xml](https://nitinmurali.vercel.app/sitemap.xml): Every canonical HTML URL.
+- [robots.txt](https://nitinmurali.vercel.app/robots.txt): All crawlers allowed, AI crawlers included.
 
 ## Optional
 - [Full site context](https://nitinmurali.vercel.app/llms-full.txt): Every page's content inlined into one file — read this if you want everything in a single fetch.

@@ -1,24 +1,15 @@
 import type { MetadataRoute } from 'next';
+import { PAGES, absoluteUrl } from '@/utils/site.mjs';
 
-const BASE_URL = 'https://nitinmurali.vercel.app';
-
-const routes: { path: string; priority: number }[] = [
-  { path: '', priority: 1 },
-  { path: '/work', priority: 0.8 },
-  { path: '/stuff', priority: 0.7 },
-  { path: '/stuff/coding-explorations', priority: 0.8 },
-  { path: '/stuff/blog', priority: 0.8 },
-  { path: '/stuff/in-the-wild', priority: 0.7 },
-  { path: '/behind-the-scenes', priority: 0.6 },
-];
-
+// Canonical HTML URLs only: redirects (/stuff) and the Markdown twins are
+// discoverable through llms.txt, /agents, and the Link: rel="alternate" header.
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return routes.map(({ path, priority }) => ({
-    url: `${BASE_URL}${path}`,
+  return PAGES.map((page) => ({
+    url: absoluteUrl(page.route),
     lastModified,
-    changeFrequency: 'monthly',
-    priority,
+    changeFrequency: page.changeFrequency,
+    priority: page.priority,
   }));
 }

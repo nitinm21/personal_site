@@ -4,11 +4,28 @@ import AudienceModeShell from '@/components/AudienceModeShell';
 import AudienceToggle from '@/components/AudienceToggle';
 import { AudienceModeProvider } from '@/contexts/AudienceModeContext';
 import { ViewModeProvider } from '@/contexts/ViewModeContext';
+import {
+  OG_IMAGE,
+  SITE_DESCRIPTION,
+  SITE_LANGUAGE,
+  SITE_LOCALE,
+  SITE_NAME,
+  SITE_URL,
+} from '@/utils/site.mjs';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Nitin Murali',
-  description: 'Product Manager & Software Engineer building products that translate complex technology into user delight and business value.',
+  // Makes every relative canonical / og:url / og:image absolute.
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: `${SITE_URL}/` }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -22,9 +39,27 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   openGraph: {
-    title: 'Nitin Murali',
-    description: 'Product Manager & Software Engineer building products that translate complex technology into user delight and business value.',
     type: 'website',
+    siteName: SITE_NAME,
+    locale: SITE_LOCALE,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: '/',
+    images: [
+      {
+        url: OG_IMAGE.path,
+        width: OG_IMAGE.width,
+        height: OG_IMAGE.height,
+        type: OG_IMAGE.type,
+        alt: OG_IMAGE.alt,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE.path],
   },
 };
 
@@ -34,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang={SITE_LANGUAGE}>
       <body>
         <CustomCursor />
         <ViewModeProvider>

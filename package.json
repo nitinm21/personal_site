@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "node --test"
+    "test": "node --test",
+    "verify:agents": "node scripts/verify-agent-endpoints.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
