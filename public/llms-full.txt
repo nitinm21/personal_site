@@ -1,6 +1,6 @@
-# Nitin Murali — AI Product Engineer
+# Nitin Murali — AI Product Manager
 
-> AI Product Engineer at GoodPower, based in Chicago, IL. Engineer-turned-PM with ~3 years of product experience and a Master's in Artificial Intelligence from the Illinois Institute of Technology. This file is the complete, machine-readable content of Nitin's personal portfolio at https://nitinmurali.vercel.app — every page inlined into one document.
+> AI Product Manager at GoodPower, based in Chicago, IL. Engineer-turned-PM with ~3 years of product experience and a Master's in Artificial Intelligence from the Illinois Institute of Technology. This file is the complete, machine-readable content of Nitin's personal portfolio at https://nitinmurali.vercel.app — every page inlined into one document.
 
 For a shorter, curated index, see https://nitinmurali.vercel.app/llms.txt.
 
@@ -25,7 +25,7 @@ For a shorter, curated index, see https://nitinmurali.vercel.app/llms.txt.
 ## Work & experience (/work)
 
 ### Experience
-1. AI Product Engineer — GoodPower (2026 – Present)
+1. AI Product Manager — GoodPower (2026 – Present)
    - Building products and talking to customers. Playing the role of both a PM and Engineer (now I only have myself to blame when things fall apart).
 2. Product Manager Intern (Summer) — Aeropay (2024)
    - Built internal tools to resolve customer-reported issues in an automated way.

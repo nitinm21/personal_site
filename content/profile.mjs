@@ -12,7 +12,7 @@ import { CONTACT_EMAIL, SITE_URL, SOCIAL_PROFILES } from '../utils/site.mjs';
 
 export const PERSON = {
   name: 'Nitin Murali',
-  jobTitle: 'AI Product Engineer',
+  jobTitle: 'AI Product Manager',
   employer: 'GoodPower',
   location: 'Chicago, IL',
   locality: 'Chicago',
@@ -30,7 +30,7 @@ export const PERSON = {
 /** Mirrors app/work/page.tsx. */
 export const EXPERIENCE = [
   {
-    title: 'AI Product Engineer',
+    title: 'AI Product Manager',
     company: 'GoodPower',
     companyUrl: null,
     years: '2026 - Present',
