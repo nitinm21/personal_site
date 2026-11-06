@@ -1,11 +1,18 @@
 /** @type {import('next').NextConfig} */
 
-// Vary: Accept must reach the CDN on the HTML variant too, or a cache that
-// stored one representation can hand it to a client that asked for the other.
-// Next owns the Vary header on rendered pages (it appends its own RSC values
-// and overwrites what middleware sets), so the Accept value is declared here,
-// at the routing layer, instead.
-const VARY_ACCEPT = { key: 'Vary', value: 'Accept' };
+// Note on `Vary: Accept` for the HTML representation: it cannot be set from
+// here. Vercel does apply routing-layer response headers (verified on static
+// files such as /llms.txt), but it will not override a header the origin
+// already sent, and Next always emits its own RSC `Vary` list on App Router
+// responses. Middleware cannot win either - the render runs after it.
+//
+// The markdown representation, which is what a negotiating client actually
+// receives, sets `Vary: Accept, Accept-Encoding` itself in
+// app/api/markdown/[[...slug]]/route.ts. Cross-variant cache poisoning is
+// prevented structurally rather than by the header: middleware rewrites
+// markdown requests to /api/markdown/*, so the two representations never share
+// a CDN cache key. scripts/verify-agent-endpoints.mjs asserts that invariant
+// directly.
 
 const nextConfig = {
   reactStrictMode: true,
@@ -20,8 +27,6 @@ const nextConfig = {
           },
         ],
       },
-      { source: '/', headers: [VARY_ACCEPT] },
-      { source: '/:path((?!_next/|api/).*)', headers: [VARY_ACCEPT] },
     ]
   },
 }
