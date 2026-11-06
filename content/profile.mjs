@@ -19,7 +19,7 @@ export const PERSON = {
   region: 'IL',
   country: 'US',
   // Mirrors the homepage bio verbatim.
-  shortBio: 'AI Product Engineer at GoodPower. Started my career as a Software Engineer.',
+  shortBio: 'AI Product Manager at GoodPower. Started my career as a Software Engineer.',
   summary:
     'Nitin Murali builds AI products at GoodPower in Chicago, Illinois, working as both product manager and engineer. He started out as a software engineer, spent roughly three years in product management at SurveySparrow and Aeropay, and holds a Master of Science in Artificial Intelligence from the Illinois Institute of Technology.',
   email: CONTACT_EMAIL,

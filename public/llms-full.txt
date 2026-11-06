@@ -18,7 +18,7 @@ For a shorter, curated index, see https://nitinmurali.vercel.app/llms.txt.
 
 ## Home (/)
 - Name: Nitin Murali
-- Bio: AI Product Engineer at GoodPower. Started my career as a Software Engineer.
+- Bio: AI Product Manager at GoodPower. Started my career as a Software Engineer.
 - Location: Chicago, IL
 - Primary call to action: "See my projects" → /stuff/coding-explorations
 

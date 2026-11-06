@@ -39,7 +39,7 @@ export default function HomeHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          AI Product Engineer at GoodPower. Started my career as a Software Engineer.
+          AI Product Manager at GoodPower. Started my career as a Software Engineer.
         </motion.p>
 
         <motion.div
